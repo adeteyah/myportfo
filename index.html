@@ -12,52 +12,34 @@
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
 		<link rel="stylesheet" href="main.css" />
+		<script>
+			let localS = localStorage.getItem('theme');
+
+			if (localS == 'dark') {
+				document.documentElement.setAttribute('data-theme', 'dark');
+			}
+		</script>
 	</head>
 	<body>
+		<nav id="nav">
+			<div>
+				<a class="nav-link" href="#home">Home</a>
+			</div>
+			<div>
+				<a class="nav-link" href="#projects">Projects</a>
+			</div>
+			<div>
+				<a class="nav-link" href="#contact">Contact</a>
+			</div>
+		</nav>
 		<section id="home">
-			<button class="btn lets-talk-button">Let's Talk</button>
-			<h1 class="header">NOTHING EXITED MORE THAN TRY SOMETHING NEW</h1>
-			<div class="floating-menu">
-				<div class="floating-menu-nav-wrapper">
-					<a href="#home">Home</a>
-				</div>
-				<div class="floating-menu-nav-wrapper">
-					<a href="#projects">Projects</a>
-				</div>
-				<div class="floating-menu-nav-wrapper">
-					<a href="#contact">Contact</a>
-				</div>
+			<div class="home-widgets">
+				<h1 class="brand">Adeteyah</h1>
 			</div>
 		</section>
 		<section id="projects">
-			<article class="project">
-				<div class="project-image-wrapper">
-					<img
-						src="https://images.unsplash.com/photo-1682687220640-9d3b11ca30e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-						alt="" />
-				</div>
-			</article>
-			<article class="project">
-				<div class="project-image-wrapper">
-					<img
-						src="https://images.unsplash.com/photo-1695763594594-31505b18b58a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80"
-						alt="" />
-				</div>
-			</article>
-			<article class="project">
-				<div class="project-image-wrapper">
-					<img
-						src="https://images.unsplash.com/photo-1695932041022-5ca96a8f38b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80"
-						alt="" />
-				</div>
-			</article>
-			<article class="project">
-				<div class="project-image-wrapper">
-					<img
-						src="https://images.unsplash.com/photo-1695650911648-718c6ef64972?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-						alt="" />
-				</div>
-			</article>
+			<div class="project">There's nothing new under the sun</div>
+			<div class="project">There's nothing new under the sun</div>
 		</section>
 		<section id="contact">
 			<a href="mailto:adeteyah@gmail.com">

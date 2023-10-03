@@ -3,14 +3,14 @@ let tl = gsap.timeline({
     scrollTrigger: {
         trigger: '#home',
         start: 'top',
-        end: 'center',
+        end: 'bottom',
         scrub: true,
         markers: true
     }
 })
 
-tl.from('.floating-menu', {
-    y: 400
+tl.to('.brand', {
+    x: window.innerWidth
 })
 
 // lenis
