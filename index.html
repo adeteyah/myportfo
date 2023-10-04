@@ -6,7 +6,7 @@
 		<title>Adeteyah</title>
 		<link href="https://css.gg/css?=|arrow-top-right" rel="stylesheet" />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Oswald&family=Rubik&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Chivo&family=Work+Sans&display=swap"
 			rel="stylesheet" />
 		<link
 			rel="stylesheet"
@@ -14,7 +14,6 @@
 		<link rel="stylesheet" href="main.css" />
 		<script>
 			let localS = localStorage.getItem('theme');
-
 			if (localS == 'dark') {
 				document.documentElement.setAttribute('data-theme', 'dark');
 			}
@@ -22,128 +21,147 @@
 	</head>
 	<body>
 		<div class="cursor"></div>
-		<section id="home">
-			<div class="home-widgets">
-				<h1 class="brand">
+		<div class="loader"></div>
+		<div class="nav-wrapper">
+			<nav class="nav wrapper">
+				<a class="nav-link" href="#">Work</a>
+				<a class="nav-link" href="#">About</a>
+				<a class="nav-link" href="#">Contact</a>
+			</nav>
+		</div>
+		<section id="hero">
+			<div class="wrapper">
+				<div class="hero-icon-wrapper">
 					<svg
-						width="20vw"
-						height="auto"
+						class="hero-icon"
 						viewBox="0 0 200 200"
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg">
 						<path
-							d="M50.5 99.5H51V100L51 124.75V149.5V150H50.5H1H0.5V149.5V141.535C0.5 134.785 1.21946 128.783 2.66574 123.535C4.81532 115.532 9.22414 109.504 15.8919 105.488C22.5459 101.481 31.4104 99.5 42.4439 99.5H50.5Z"
-							fill="white"
-							stroke="white" />
+							d="M50 100H41.8626C19.6805 100 6.44967 107.969 2.16998 123.906C0.723324 129.154 0 135.17 0 141.955V150H50V125L50 100Z"
+							fill="white" />
 						<path
-							d="M50.5 99.5H50V100L50 124.75V149.5V150H50.5H100H100.5V149.5V141.535C100.5 134.785 99.7805 128.783 98.3343 123.535C96.1847 115.532 91.7759 109.504 85.1081 105.488C78.4541 101.481 69.5896 99.5 58.5561 99.5H50.5Z"
-							fill="white"
-							stroke="white" />
+							d="M50 100H58.1374C80.3195 100 93.5503 107.969 97.83 123.906C99.2767 129.154 100 135.17 100 141.955V150H50V125L50 100Z"
+							fill="white" />
 						<path
-							d="M100 99.5H99.5V100V124.75L99.5 149.5V150H100H149.5H150V149.5V141.535C150 134.785 149.281 128.783 147.834 123.535C145.685 115.532 141.276 109.504 134.608 105.488C127.954 101.481 119.09 99.5 108.056 99.5H100Z"
-							fill="white"
-							stroke="white" />
+							d="M100 100H108.137C130.319 100 143.55 107.969 147.83 123.906C149.277 129.154 150 135.17 150 141.955V150H100L100 125V100Z"
+							fill="white" />
 						<path
-							d="M199 99.5H199.5V100V124.75V149.5V150H199H149.5H149V149.5V141.535C149 134.785 149.719 128.783 151.166 123.535C153.315 115.532 157.724 109.504 164.392 105.488C171.046 101.481 179.91 99.5 190.944 99.5H199Z"
-							fill="white"
-							stroke="white" />
+							d="M200 100H191.863C169.681 100 156.45 107.969 152.17 123.906C150.723 129.154 150 135.17 150 141.955V150H200V125V100Z"
+							fill="white" />
 						<path
-							d="M149.5 149H150V149.5V174.25V199V199.5H149.5H100H99.5V199V191.035C99.5 184.285 100.219 178.283 101.666 173.035C103.815 165.032 108.224 159.004 114.892 154.988C121.546 150.981 130.41 149 141.444 149H149.5Z"
-							fill="white"
-							stroke="white" />
+							d="M150 150H141.863C119.681 150 106.45 157.969 102.17 173.906C100.723 179.154 100 185.17 100 191.955V200H150V175V150Z"
+							fill="white" />
 						<path
-							d="M100.5 50.5L100.5 50L100 50L75.2499 50L50.5 50L50 50L50 50.5L50 100L50 100.5L50.5 100.5L58.4649 100.5C65.2151 100.5 71.2167 99.7805 76.4645 98.3343C84.4682 96.1847 90.4959 91.7759 94.5117 85.1081C98.5192 78.4541 100.5 69.5896 100.5 58.5561L100.5 50.5Z"
-							fill="white"
-							stroke="white" />
+							d="M100 50L100 58.1374C100 80.3195 92.0315 93.5503 76.0945 97.83C70.8461 99.2767 64.8298 100 58.0454 100L50 100L50 50L74.9999 50L100 50Z"
+							fill="white" />
 						<path
-							d="M25.25 149.5L25.25 149L25.75 149L50.5001 149L75.25 149L75.75 149L75.75 149.5L75.75 199L75.75 199.5L75.25 199.5L67.2851 199.5C60.5349 199.5 54.5332 198.781 49.2854 197.334C41.2818 195.185 35.2541 190.776 31.2383 184.108C27.2308 177.454 25.25 168.59 25.25 157.556L25.25 149.5Z"
-							fill="white"
-							stroke="white" />
+							d="M25 150L25 158.137C25 180.319 32.9685 193.55 48.9055 197.83C54.1539 199.277 60.1702 200 66.9547 200L75 200L75 150L50.0001 150L25 150Z"
+							fill="white" />
 						<path
-							d="M199.5 149.5L199.5 149L199 149L174.25 149L149.5 149L149 149L149 149.5L149 199L149 199.5L149.5 199.5L157.465 199.5C164.215 199.5 170.217 198.781 175.465 197.334C183.468 195.185 189.496 190.776 193.512 184.108C197.519 177.454 199.5 168.59 199.5 157.556L199.5 149.5Z"
-							fill="white"
-							stroke="white" />
+							d="M200 150L200 158.137C200 180.319 192.031 193.55 176.094 197.83C170.846 199.277 164.83 200 158.045 200L150 200L150 150L175 150L200 150Z"
+							fill="white" />
 						<path
-							d="M199.5 50.5L199.5 50L199 50L174.25 50L149.5 50L149 50L149 50.5L149 100L149 100.5L149.5 100.5L157.465 100.5C164.215 100.5 170.217 99.7805 175.465 98.3343C183.468 96.1847 189.496 91.7759 193.512 85.1081C197.519 78.4541 199.5 69.5896 199.5 58.5561L199.5 50.5Z"
-							fill="white"
-							stroke="white" />
+							d="M200 50L200 58.1374C200 80.3195 192.031 93.5503 176.094 97.83C170.846 99.2767 164.83 100 158.045 100L150 100L150 50L175 50L200 50Z"
+							fill="white" />
 						<path
-							d="M0.5 100L0.5 100.5L1 100.5L25.7501 100.5L50.5 100.5L51 100.5L51 100L51 50.5L51 50L50.5 50L42.5351 50C35.7849 50 29.7833 50.7195 24.5355 52.1657C16.5318 54.3153 10.5041 58.7241 6.4883 65.3919C2.48084 72.0459 0.499999 80.9104 0.5 91.9439L0.5 100Z"
-							fill="white"
-							stroke="white" />
+							d="M0 100L-3.55698e-07 91.8626C-1.32531e-06 69.6805 7.96851 56.4497 23.9055 52.17C29.1539 50.7233 35.1702 50 41.9546 50L50 50L50 100L25.0001 100L0 100Z"
+							fill="white" />
 						<path
-							d="M100.5 50.5L100.5 51L100 51L75.2499 51L50.5 51L50 51L50 50.5L50 0.999998L50 0.499998L50.5 0.499998L58.4649 0.499998C65.2151 0.499998 71.2167 1.21946 76.4645 2.66574C84.4682 4.81532 90.4959 9.22414 94.5117 15.8919C98.5192 22.5459 100.5 31.4104 100.5 42.4439L100.5 50.5Z"
-							fill="white"
-							stroke="white" />
+							d="M100 50L100 41.8626C100 19.6805 92.0315 6.44967 76.0945 2.16998C70.8461 0.723323 64.8298 -1.53734e-06 58.0454 -1.8339e-06L50 -2.18557e-06L50 50L74.9999 50L100 50Z"
+							fill="white" />
 						<path
-							d="M199.5 50.5L199.5 51L199 51L174.25 51L149.5 51L149 51L149 50.5L149 0.999998L149 0.499998L149.5 0.499998L157.465 0.499998C164.215 0.499998 170.217 1.21946 175.465 2.66574C183.468 4.81532 189.496 9.22414 193.512 15.8919C197.519 22.5459 199.5 31.4104 199.5 42.4439L199.5 50.5Z"
-							fill="white"
-							stroke="white" />
+							d="M200 50L200 41.8626C200 19.6805 192.031 6.44967 176.094 2.16998C170.846 0.723323 164.83 -1.53734e-06 158.045 -1.8339e-06L150 -2.18557e-06L150 50L175 50L200 50Z"
+							fill="white" />
 						<path
-							d="M0.5 50.5L0.5 51L1 51L25.7501 51L50.5 51L51 51L51 50.5L51 0.999998L51 0.499998L50.5 0.499998L42.5351 0.499998C35.7849 0.499998 29.7833 1.21946 24.5355 2.66574C16.5318 4.81532 10.5041 9.22414 6.4883 15.8919C2.48084 22.5459 0.499999 31.4104 0.5 42.4439L0.5 50.5Z"
-							fill="white"
-							stroke="white" />
-						<rect
-							x="99.5"
-							y="0.5"
-							width="50.5"
-							height="50.5"
-							fill="white"
-							stroke="white" />
-						<rect
-							x="99.5"
-							y="50"
-							width="50.5"
-							height="50.5"
-							fill="white"
-							stroke="white" />
+							d="M0 50L-3.55698e-07 41.8626C-1.32531e-06 19.6805 7.96851 6.44967 23.9055 2.16998C29.1539 0.723323 35.1702 -1.53734e-06 41.9546 -1.8339e-06L50 -2.18557e-06L50 50L25.0001 50L0 50Z"
+							fill="white" />
+						<rect x="100" width="50" height="50" fill="white" />
+						<rect x="100" y="50" width="50" height="50" fill="white" />
 					</svg>
-				</h1>
+				</div>
+				<div class="hero-me-wrapper">
+					<div class="hero-me"></div>
+				</div>
+				<div class="hero-marquee-wrapper">
+					<div class="hero-marquee">
+						<span>Aditiya</span>
+						<span>Rachman</span>
+						<span>•</span>
+						<span>Adeteyah</span>
+						<span>•</span>
+						<span>Aditiya</span>
+						<span>Rachman</span>
+						<span>•</span>
+						<span>Adeteyah</span>
+						<span>•</span>
+						<span>Aditiya</span>
+						<span>Rachman</span>
+						<span>•</span>
+						<span>Adeteyah</span>
+						<span>•</span>
+						<span>Aditiya</span>
+						<span>Rachman</span>
+						<span>•</span>
+						<span>Adeteyah</span>
+						<span>•</span>
+						<span>Aditiya</span>
+						<span>Rachman</span>
+						<span>•</span>
+						<span>Adeteyah</span>
+						<span>•</span>
+						<span>Aditiya</span>
+						<span>Rachman</span>
+						<span>•</span>
+						<span>Adeteyah</span>
+						<span>•</span>
+						<span>Aditiya</span>
+						<span>Rachman</span>
+						<span>•</span>
+						<span>Adeteyah</span>
+						<span>•</span>
+						<span>Aditiya</span>
+						<span>Rachman</span>
+						<span>•</span>
+						<span>Adeteyah</span>
+						<span>•</span>
+						<span>Aditiya</span>
+						<span>Rachman</span>
+						<span>•</span>
+						<span>Adeteyah</span>
+						<span>•</span>
+						<span>Aditiya</span>
+						<span>Rachman</span>
+						<span>•</span>
+						<span>Adeteyah</span>
+						<span>•</span>
+						<span>Aditiya</span>
+						<span>Rachman</span>
+						<span>•</span>
+						<span>Adeteyah</span>
+						<span>•</span>
+						<span>Aditiya</span>
+						<span>Rachman</span>
+						<span>•</span>
+						<span>Adeteyah</span>
+						<span>•</span>
+						<span>Aditiya</span>
+						<span>Rachman</span>
+						<span>•</span>
+						<span>Adeteyah</span>
+						<span>•</span>
+						<span>Aditiya</span>
+						<span>Rachman</span>
+						<span>•</span>
+						<span>Adeteyah</span>
+						<span>•</span>
+					</div>
+				</div>
 			</div>
 		</section>
-		<section id="projects">
-			<div class="project">
-				<img
-					src="https://assets.materialup.com/uploads/fe709caf-2fbf-4c70-a91a-25e5fdd6b9ce/preview.jpg"
-					alt="Project Image" />
-			</div>
-			<div class="project">
-				<img
-					src="https://assets.materialup.com/uploads/4a2563a0-3170-4bf4-8a3c-ca8edb8a0d7e/preview.jpg"
-					alt="Project Image" />
-			</div>
-			<div class="project">
-				<img
-					src="https://assets.materialup.com/uploads/fe709caf-2fbf-4c70-a91a-25e5fdd6b9ce/preview.jpg"
-					alt="Project Image" />
-			</div>
-			<div class="project">
-				<img
-					src="https://assets.materialup.com/uploads/4a2563a0-3170-4bf4-8a3c-ca8edb8a0d7e/preview.jpg"
-					alt="Project Image" />
-			</div>
-			<div class="project">
-				<img
-					src="https://assets.materialup.com/uploads/fe709caf-2fbf-4c70-a91a-25e5fdd6b9ce/preview.jpg"
-					alt="Project Image" />
-			</div>
-			<div class="project">
-				<img
-					src="https://assets.materialup.com/uploads/4a2563a0-3170-4bf4-8a3c-ca8edb8a0d7e/preview.jpg"
-					alt="Project Image" />
-			</div>
-			<div class="project">
-				<img
-					src="https://assets.materialup.com/uploads/fe709caf-2fbf-4c70-a91a-25e5fdd6b9ce/preview.jpg"
-					alt="Project Image" />
-			</div>
-			<div class="project">
-				<img
-					src="https://assets.materialup.com/uploads/4a2563a0-3170-4bf4-8a3c-ca8edb8a0d7e/preview.jpg"
-					alt="Project Image" />
-			</div>
-		</section>
-		<section id="contact"></section>
+		<section id="work">Work</section>
+		<section id="about">About</section>
+		<section id="contact">Contact</section>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
