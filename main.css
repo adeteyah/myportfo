@@ -1,19 +1,22 @@
+/* Root */
 :root {
 	font-family: 'Work Sans';
 }
+
 /* Cursor */
 .cursor {
 	position: fixed;
 	width: 130px;
 	height: 130px;
-	background-color: #fff; /* Red color, you can customize this */
+	background-color: #fff;
 	border-radius: 50%;
-	pointer-events: none; /* Ensure it doesn't interfere with clicks */
+	pointer-events: none;
 	transform: translate(-50%, -50%);
 	user-select: none;
 	mix-blend-mode: difference;
 	z-index: 999;
 }
+
 /* Default State */
 a {
 	text-decoration: none;
@@ -22,6 +25,12 @@ a {
 section {
 	position: relative;
 	overflow: hidden;
+}
+
+img {
+	width: 100%;
+	object-fit: cover;
+	object-position: center;
 }
 
 /* Nav */
@@ -41,7 +50,9 @@ section {
 }
 
 #projects {
-	place-content: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	flex-direction: column;
 }
 
 #contact {
@@ -65,10 +76,8 @@ section {
 
 /* Project Widgets */
 .project {
-	height: 100vh;
-	padding: 60px;
-	margin: 60px;
-	background-color: #d9d9d9;
+	width: 100%;
+	display: flex;
 }
-/* Contact Widgets */
 
+/* Contact Widgets */
