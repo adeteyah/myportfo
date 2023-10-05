@@ -53,25 +53,50 @@ pointerObj.forEach(link => {
 	});
 });
 
-// my name
+//
 let tlHero = gsap.timeline({
 	scrollTrigger: {
 		scrub: true,
 		trigger: '#hero',
-		start: 'start start',
-		end: 'bottom bottom+=-40%',
+		start: 'start',
+		end: 'bottom',
 		endTrigger: '#hero',
-		markers: true,
 	},
 });
+const marquee = gsap.utils.toArray('.hero-marquee');
 
-tlHero.to('.hero-marquee', {
-	x: -window.innerWidth,
-	ease: 'power2.out',
-	opacity: 0.2,
+marquee.forEach((box, index) => {
+	const direction = index % 2 === 0 ? -1 : 1; // Even elements move from the left, odd elements move from the right
+	tlHero.to(box, {
+		ease: 'power2.out',
+		opacity: 0.2,
+	});
 });
 
-tlHero.from('.nav', {
-	y: window.innerHeight,
+tlHero.from('.hero-icon', {
+	y: -window.innerHeight,
 	ease: 'power2.out',
+});
+
+//
+let tween = gsap.to('.hero-marquee', {
+	xPercent: -100,
+	repeat: -1,
+	duration: 20,
+	ease: 'linear',
+	onRepeat: function (iteration) {
+		if (iteration % 2 === 0) {
+			// Even iteration, move to the left
+			gsap.to('.hero-marquee', {
+				xPercent: 100,
+				duration: 0, // You can adjust the duration as needed
+			});
+		} else {
+			// Odd iteration, move to the right
+			gsap.to('.hero-marquee', {
+				xPercent: -100,
+				duration: 0, // You can adjust the duration as needed
+			});
+		}
+	},
 });
