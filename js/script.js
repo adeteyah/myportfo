@@ -66,14 +66,12 @@ let tlFullPage = gsap.timeline({
 tlFullPage.to('.progress-bar', {
 	value: 100,
 	ease: 'power3.inOut',
-	duration: 5,
-	scrollTrigger: { scrub: 1 },
+	scrollTrigger: { scrub: 0.9 },
 });
 tlFullPage.from('.back-to-top', {
 	ease: 'power3.inOut',
 	y: window.innerHeight,
-	duration: 5,
-	scrollTrigger: { scrub: 1 },
+	scrollTrigger: { scrub: 0.9 },
 });
 //
 let tlWelcome = gsap.timeline({

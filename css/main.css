@@ -19,7 +19,7 @@ img {
 .cursor {
   width: 16px;
   height: 16px;
-  background-color: #fff;
+  background-color: #f6fbf2;
   border-radius: 50%;
   position: fixed;
   transform: translate(-50%, -50%);
@@ -50,12 +50,12 @@ img {
 }
 
 .progress-bar::-webkit-progress-value {
-  background: #141414;
+  background: #80ff00;
   background-attachment: fixed;
 }
 
 .progress-bar::-moz-progress-bar {
-  background: #141414;
+  background: #80ff00;
   background-attachment: fixed;
 }
 
@@ -75,13 +75,11 @@ section {
   justify-content: space-between;
   margin-block: 40px 24px;
   z-index: 998;
-  mix-blend-mode: difference;
 }
 .topbar img {
   width: 40px;
   height: 40px;
   margin-inline: 40px 24px;
-  mix-blend-mode: difference;
 }
 .topbar button {
   margin-inline: 40px 24px;
@@ -92,20 +90,16 @@ section {
   padding: 8px 16px;
   font-weight: bold;
   font-family: "Work Sans";
-  color: #fff;
   background-color: transparent;
-  border: 3px solid #fff;
-}
-.topbar button:hover {
-  background-color: #fff;
-  color: #111;
+  color: #80ff00;
+  border: 3px solid #80ff00;
 }
 
 #welcome {
   display: flex;
   justify-content: center;
   align-items: bottom;
-  background-color: #e3e3e3;
+  background-color: #f6fbf2;
   z-index: 1;
 }
 #welcome .my-picture {
@@ -132,7 +126,7 @@ section {
   flex-shrink: 0;
   white-space: nowrap;
   box-sizing: border-box;
-  color: #141414;
+  color: #171e10;
   font-size: 30vh;
   font-family: "MonumentExtended";
   text-transform: uppercase;
@@ -147,20 +141,21 @@ section {
 #welcome .walking-text:nth-of-type(even) {
   text-align: end;
 }
-#welcome .walking-text:hover:hover {
-  color: #80ff00;
+#welcome .walking-text span {
+  display: inline;
+  box-sizing: border-box;
 }
-#welcome .walking-text-gap {
-  width: 50px;
+#welcome .walking-text span:hover {
+  color: #80ff00;
 }
 
 #showcase {
-  background-color: #fff;
+  background-color: #171e10;
   z-index: 2;
 }
 
 #about {
-  background-color: #fff;
+  background-color: #171e10;
   z-index: 3;
 }
 
@@ -169,17 +164,14 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #111;
+  background-color: #171e10;
   z-index: 4;
 }
 #contact a {
   font-family: "MonumentExtended";
   font-size: 134px;
-  color: #fff;
-  text-decoration: none;
-}
-#contact a:hover {
   color: #80ff00;
+  text-decoration: none;
 }
 
 .back-to-top {
@@ -195,12 +187,8 @@ section {
   padding: 8px 16px;
   font-weight: bold;
   font-family: "Work Sans";
-  color: #fff;
   background-color: transparent;
-  border: 3px solid #fff;
+  color: #80ff00;
+  border: 3px solid #80ff00;
   z-index: 5;
-}
-.back-to-top:hover {
-  background-color: #fff;
-  color: #111;
 }/*# sourceMappingURL=main.css.map */

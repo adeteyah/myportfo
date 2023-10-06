@@ -28,11 +28,7 @@
 	padding: $size1 $size2;
 	font-weight: bold;
 	font-family: $font-family-1;
-	color: $color3;
 	background-color: transparent;
-	border: 3px solid $color3;
-	&:hover {
-		background-color: $color3;
-		color: $color1;
-	}
+	color: $color1;
+	border: $border-size solid $color1;
 }
