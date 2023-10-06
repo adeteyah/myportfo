@@ -20,15 +20,25 @@
 @mixin paddingInlineDefault {
 	padding-inline: $size5 $size3;
 }
-@mixin buttonStyle {
+@mixin buttonDefault {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-radius: $size2;
 	padding: $size1 $size2;
-	font-weight: bold;
-	font-family: $font-family-1;
 	background-color: transparent;
-	color: $color1;
+	color: $color3;
 	border: $border-size solid $color1;
+	background-color: $color1;
+	@include fontDefault;
+	cursor: pointer;
+}
+@mixin buttonOutlined {
+	color: $color1;
+	background-color: transparent;
+}
+@mixin fontDefault {
+	font-family: $font-family-1;
+	letter-spacing: 0.75px;
+	line-height: 20px;
 }

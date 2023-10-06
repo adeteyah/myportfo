@@ -68,11 +68,6 @@ tlFullPage.to('.progress-bar', {
 	ease: 'power3.inOut',
 	scrollTrigger: { scrub: 0.9 },
 });
-tlFullPage.from('.back-to-top', {
-	ease: 'power3.inOut',
-	y: window.innerHeight,
-	scrollTrigger: { scrub: 0.9 },
-});
 //
 let tlWelcome = gsap.timeline({
 	scrollTrigger: {
@@ -93,6 +88,28 @@ tlWelcome.from('.topbar', {
 	ease: 'power1.inOut',
 	scrollTrigger: { scrub: 0.3 },
 });
+//
+let tlContact = gsap.timeline({
+	scrollTrigger: {
+		scrub: true,
+		trigger: '#contact',
+		start: 'center+=10% center+=20%',
+		end: 'center+=10% center+=20%',
+		endTrigger: '#contact',
+	},
+});
+tlContact.from('#contact a', {
+	rotateX: 500,
+	ease: 'power3.inOut',
+	opacity: 0.5,
+	scrollTrigger: { scrub: 0.3 },
+});
+tlContact.from('.back-to-top', {
+	ease: 'power3.inOut',
+	y: window.innerHeight,
+	scrollTrigger: { scrub: 0.9 },
+});
+//
 const walkingTextElements = document.querySelectorAll('.walking-text');
 walkingTextElements.forEach((element, index) => {
 	if (index % 2 === 0) {

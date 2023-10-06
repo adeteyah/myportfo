@@ -1,12 +1,4 @@
-img {
-  width: 100%;
-  height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
 @font-face {
   font-family: "MonumentExtended";
   src: url("../fonts/MonumentExtended-Regular.otf") format("opentype");
@@ -16,10 +8,25 @@ img {
   font-weight: bold;
   src: url("../fonts/MonumentExtended-Ultrabold.otf") format("opentype");
 }
+img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+p {
+  font-family: "Manrope";
+  letter-spacing: 0.75px;
+  line-height: 20px;
+}
+
 .cursor {
   width: 16px;
   height: 16px;
-  background-color: #f6fbf2;
+  background-color: #80ff00;
   border-radius: 50%;
   position: fixed;
   transform: translate(-50%, -50%);
@@ -88,11 +95,14 @@ section {
   align-items: center;
   border-radius: 16px;
   padding: 8px 16px;
-  font-weight: bold;
-  font-family: "Work Sans";
   background-color: transparent;
-  color: #80ff00;
+  color: #171e10;
   border: 3px solid #80ff00;
+  background-color: #80ff00;
+  font-family: "Manrope";
+  letter-spacing: 0.75px;
+  line-height: 20px;
+  cursor: pointer;
 }
 
 #welcome {
@@ -120,17 +130,15 @@ section {
   justify-content: space-between;
   flex-direction: column;
   overflow: hidden;
+  gap: 1vh;
   z-index: -1;
 }
 #welcome .walking-text {
   flex-shrink: 0;
   white-space: nowrap;
-  box-sizing: border-box;
   color: #171e10;
-  font-size: 30vh;
   font-family: "MonumentExtended";
   text-transform: uppercase;
-  margin-block: 1vh;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -142,15 +150,15 @@ section {
   text-align: end;
 }
 #welcome .walking-text span {
-  display: inline;
-  box-sizing: border-box;
+  font-size: 30vh;
+  cursor: pointer;
 }
 #welcome .walking-text span:hover {
   color: #80ff00;
 }
 
 #showcase {
-  background-color: #171e10;
+  background-color: #f6fbf2;
   z-index: 2;
 }
 
@@ -185,10 +193,15 @@ section {
   align-items: center;
   border-radius: 16px;
   padding: 8px 16px;
-  font-weight: bold;
-  font-family: "Work Sans";
   background-color: transparent;
-  color: #80ff00;
+  color: #171e10;
   border: 3px solid #80ff00;
+  background-color: #80ff00;
+  font-family: "Manrope";
+  letter-spacing: 0.75px;
+  line-height: 20px;
+  cursor: pointer;
+  color: #80ff00;
+  background-color: transparent;
   z-index: 5;
 }/*# sourceMappingURL=main.css.map */
