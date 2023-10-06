@@ -10,90 +10,41 @@
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
-		<link rel="stylesheet" href="main.css" />
-		<script>
-			let localS = localStorage.getItem('theme');
-			if (localS == 'dark') {
-				document.documentElement.setAttribute('data-theme', 'dark');
-			}
-		</script>
+		<link rel="stylesheet" href="css/main.css" />
 	</head>
 	<body>
 		<div class="cursor"></div>
-		<div class="loader"></div>
-		<section id="hero">
-			<div class="hero-top-wrapper">
-				<div class="hero-icon-wrapper">
-					<a href="#hero" onclick="lenis.scrollTo('#hero')">
-						<img
-							class="hero-icon"
-							src="img/icon.svg"
-							alt="Adeteyah Icon" />
-					</a>
-				</div>
-				<div class="hero-menu-wrapper">
-					<a
-						class="hero-menu"
-						href="#work"
-						onclick="lenis.scrollTo('#work')">
-						<box-icon color="white" name="menu"></box-icon>
-					</a>
-				</div>
+		<progress class="progress-bar" value="0" max="100"></progress>
+		<section id="welcome">
+			<div class="topbar">
+				<img src="img/icon.svg" />
+				<button onclick="lenis.scrollTo('#showcase')">
+					Works & Projects &#8595;
+				</button>
 			</div>
-			<div class="hero-me-wrapper">
-				<div class="hero-me">
-					<img
-						src="https://www.pngmart.com/files/22/Max-Verstappen-PNG-HD.png"
-						alt="Me" />
-				</div>
-			</div>
-			<div class="hero-marquees-wrapper">
-				<div class="hero-marquee-wrapper">
-					<div class="hero-marquee hero-marquee-dark">
-						PRODUCT & VISUAL DESIGNER&nbsp;•&nbsp;
-					</div>
-					<div class="hero-marquee hero-marquee-dark">
-						PRODUCT & VISUAL DESIGNER&nbsp;•&nbsp;
-					</div>
-				</div>
-				<div class="hero-marquee-wrapper">
-					<div class="hero-marquee hero-marquee-light">
-						FULLSTACK DEVELOPER&nbsp;•&nbsp;
-					</div>
-					<div class="hero-marquee hero-marquee-light">
-						FULLSTACK DEVELOPER&nbsp;•&nbsp;
-					</div>
-				</div>
-				<div class="hero-marquee-wrapper">
-					<div class="hero-marquee hero-marquee-dark">
-						JAVASCRIPT ANIMATOR&nbsp;•&nbsp;
-					</div>
-					<div class="hero-marquee hero-marquee-dark">
-						JAVASCRIPT ANIMATOR&nbsp;•&nbsp;
-					</div>
-				</div>
-			</div>
+			<img
+				class="my-picture"
+				src="https://www.pngmart.com/files/22/Max-Verstappen-PNG-HD.png"
+				alt="Me" />
 		</section>
-		<section id="work">
-			<div class="wrapper">
-				<div class="work-wrapper">
-					<div class="work-image">
-						<img
-							src="https://www.premiumuikits.com/wp-content/uploads/2022/01/health-uikit.jpg"
-							alt="" />
-					</div>
-				</div>
+		<section id="showcase">
+			<div class="section-inner-wrapper">
+				<h1 class="section-title">Gallery</h1>
 			</div>
 		</section>
 		<section id="about">About</section>
-		<section id="contact">Contact</section>
-		<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-		<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+		<section id="contact">
+			<a href="#" class="contact-link">LET'S TALK &#8599;</a>
+		</section>
+		<button class="back-to-top" onclick="lenis.scrollTo('#welcome')">
+			Back To Top &#8593;
+		</button>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.157.0/three.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.25/bundled/lenis.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.3/umd/index.min.js"></script>
-		<script src="script.js"></script>
+		<script src="js/script.js"></script>
 	</body>
 </html>

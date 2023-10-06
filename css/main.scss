@@ -1,0 +1,119 @@
+@import 'reset';
+@import 'mixins';
+@import 'variables';
+
+@font-face {
+	font-family: 'MonumentExtended';
+	src: url('../fonts/MonumentExtended-Regular.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'MonumentExtended';
+	font-weight: bold;
+	src: url('../fonts/MonumentExtended-Ultrabold.otf') format('opentype');
+}
+
+.cursor {
+	width: $cursor-size;
+	height: $cursor-size;
+	background-color: #fff;
+	border-radius: 50%;
+	position: fixed;
+	transform: translate(-50%, -50%);
+	mix-blend-mode: difference;
+	z-index: 999;
+	@include noMouseEvent;
+}
+
+.progress-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	-webkit-appearance: none;
+	appearance: none;
+	width: 100%;
+	height: $size1;
+	border: none;
+	background: transparent;
+	z-index: 999;
+}
+.progress-bar::-webkit-progress-bar {
+	background: transparent;
+}
+.progress-bar::-webkit-progress-value {
+	background: $color2;
+	background-attachment: fixed;
+}
+.progress-bar::-moz-progress-bar {
+	background: $color2;
+	background-attachment: fixed;
+}
+section {
+	display: block;
+	position: relative;
+	overflow: hidden;
+}
+
+#welcome {
+	display: flex;
+	justify-content: center;
+	align-items: bottom;
+	.my-picture {
+		width: auto;
+		height: 100svh;
+		@include noMouseEvent;
+	}
+	.topbar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		@include marginBlockDefault;
+		img {
+			width: $size5;
+			height: $size5;
+			@include marginInlineDefault;
+			mix-blend-mode: difference;
+		}
+		button {
+			@include marginInlineDefault;
+			@include buttonStyle1;
+		}
+	}
+	background-color: $color4;
+	z-index: 1;
+}
+#showcase {
+	background-color: $color3;
+	z-index: 2;
+}
+#about {
+	background-color: $color3;
+	z-index: 3;
+}
+#contact {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	a {
+		font-family: $font-family-2;
+		font-size: $font-size-2;
+		color: $color3;
+		text-decoration: none;
+	}
+	background-color: $color1;
+	z-index: 4;
+}
+.back-to-top {
+	position: fixed;
+	left: 50%;
+	bottom: 0;
+	transform: translateX(-50%);
+	margin-bottom: $size5;
+	@include buttonStyle2;
+	z-index: 5;
+}

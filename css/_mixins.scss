@@ -1,0 +1,57 @@
+@mixin noMouseEvent {
+	user-select: none;
+	pointer-events: none;
+}
+@mixin marginDefault {
+	margin: $size5 $size3;
+}
+@mixin paddingDefault {
+	padding: $size5 $size3;
+}
+@mixin marginBlockDefault {
+	margin-block: $size5 $size3;
+}
+@mixin paddingBlockDefault {
+	padding-block: $size5 $size3;
+}
+@mixin marginInlineDefault {
+	margin-inline: $size5 $size3;
+}
+@mixin paddingInlineDefault {
+	padding-inline: $size5 $size3;
+}
+@mixin buttonStyle1 {
+	font-family: $font-family-1;
+	background-color: transparent;
+	border-radius: $size2;
+	padding-block: $size1;
+	padding-inline: $size2;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid $color2;
+	&:hover {
+		background-color: $color1;
+		color: $color3;
+	}
+}
+@mixin buttonStyle2 {
+	font-family: $font-family-1;
+	background-color: transparent;
+	border-radius: $size2;
+	padding-block: $size1;
+	padding-inline: $size2;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid $color3;
+	color: $color3;
+	font-family: $font-family-1;
+	&:hover {
+		background-color: $color3;
+		color: $color2;
+	}
+	font-family: $font-family-1;
+}
