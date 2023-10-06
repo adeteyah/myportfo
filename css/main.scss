@@ -54,6 +54,29 @@ section {
 	overflow: hidden;
 }
 
+.topbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	@include marginBlockDefault;
+	img {
+		width: $size5;
+		height: $size5;
+		@include marginInlineDefault;
+		mix-blend-mode: difference;
+	}
+	button {
+		@include marginInlineDefault;
+		@include buttonStyle;
+	}
+	z-index: 998;
+	mix-blend-mode: difference;
+}
+
 #welcome {
 	display: flex;
 	justify-content: center;
@@ -63,25 +86,42 @@ section {
 		height: 100svh;
 		@include noMouseEvent;
 	}
-	.topbar {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
+	.walking-texts {
 		width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 		display: flex;
 		justify-content: space-between;
-		@include marginBlockDefault;
-		img {
-			width: $size5;
-			height: $size5;
-			@include marginInlineDefault;
-			mix-blend-mode: difference;
+		flex-direction: column;
+		overflow: hidden;
+		z-index: -1;
+	}
+	.walking-text {
+		flex-shrink: 0;
+		white-space: nowrap;
+		box-sizing: border-box;
+		color: $color2;
+		font-size: 30vh;
+		font-family: $font-family-2;
+		text-transform: uppercase;
+		margin-block: 1vh;
+		&:nth-of-type(odd) {
+			text-align: start;
 		}
-		button {
-			@include marginInlineDefault;
-			@include buttonStyle1;
+		&:nth-of-type(even) {
+			text-align: end;
 		}
+		&:hover {
+			&:hover {
+				color: $color5;
+			}
+		}
+		user-select: none;
+	}
+	.walking-text-gap {
+		width: 50px;
 	}
 	background-color: $color4;
 	z-index: 1;
@@ -104,6 +144,9 @@ section {
 		font-size: $font-size-2;
 		color: $color3;
 		text-decoration: none;
+		&:hover {
+			color: $color5;
+		}
 	}
 	background-color: $color1;
 	z-index: 4;
@@ -114,6 +157,6 @@ section {
 	bottom: 0;
 	transform: translateX(-50%);
 	margin-bottom: $size5;
-	@include buttonStyle2;
+	@include buttonStyle;
 	z-index: 5;
 }

@@ -4,6 +4,9 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Adeteyah</title>
+		<link rel="icon" type="image/png" sizes="16x16" href="img/16x16.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="img/32x32.png" />
+
 		<link
 			href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Work+Sans&display=swap"
 			rel="stylesheet" />
@@ -15,26 +18,32 @@
 	<body>
 		<div class="cursor"></div>
 		<progress class="progress-bar" value="0" max="100"></progress>
+		<div class="topbar">
+			<img src="img/icon.svg" />
+			<button onclick="lenis.scrollTo('#showcase')">
+				Works & Projects &#8595;
+			</button>
+		</div>
 		<section id="welcome">
-			<div class="topbar">
-				<img src="img/icon.svg" />
-				<button onclick="lenis.scrollTo('#showcase')">
-					Works & Projects &#8595;
-				</button>
+			<div class="walking-texts">
+				<div class="walking-text">HTML</div>
+				<div class="walking-text">CSS</div>
+				<div class="walking-text">JAVASCRIPT</div>
 			</div>
 			<img
 				class="my-picture"
 				src="https://www.pngmart.com/files/22/Max-Verstappen-PNG-HD.png"
 				alt="Me" />
 		</section>
-		<section id="showcase">
-			<div class="section-inner-wrapper">
-				<h1 class="section-title">Gallery</h1>
-			</div>
-		</section>
-		<section id="about">About</section>
+		<section id="showcase"></section>
+		<section id="about"></section>
 		<section id="contact">
-			<a href="#" class="contact-link">LET'S TALK &#8599;</a>
+			<a
+				target="_blank"
+				href="https://linktr.ee/adeteyah"
+				class="contact-link">
+				LET'S TALK &#8599;
+			</a>
 		</section>
 		<button class="back-to-top" onclick="lenis.scrollTo('#welcome')">
 			Back To Top &#8593;

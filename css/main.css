@@ -65,6 +65,42 @@ section {
   overflow: hidden;
 }
 
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-block: 40px 24px;
+  z-index: 998;
+  mix-blend-mode: difference;
+}
+.topbar img {
+  width: 40px;
+  height: 40px;
+  margin-inline: 40px 24px;
+  mix-blend-mode: difference;
+}
+.topbar button {
+  margin-inline: 40px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  padding: 8px 16px;
+  font-weight: bold;
+  font-family: "Work Sans";
+  color: #fff;
+  background-color: transparent;
+  border: 3px solid #fff;
+}
+.topbar button:hover {
+  background-color: #fff;
+  color: #111;
+}
+
 #welcome {
   display: flex;
   justify-content: center;
@@ -80,38 +116,42 @@ section {
           user-select: none;
   pointer-events: none;
 }
-#welcome .topbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+#welcome .walking-texts {
   width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: space-between;
-  margin-block: 40px 24px;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: -1;
 }
-#welcome .topbar img {
-  width: 40px;
-  height: 40px;
-  margin-inline: 40px 24px;
-  mix-blend-mode: difference;
+#welcome .walking-text {
+  flex-shrink: 0;
+  white-space: nowrap;
+  box-sizing: border-box;
+  color: #141414;
+  font-size: 30vh;
+  font-family: "MonumentExtended";
+  text-transform: uppercase;
+  margin-block: 1vh;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
-#welcome .topbar button {
-  margin-inline: 40px 24px;
-  font-family: "Work Sans";
-  background-color: transparent;
-  border-radius: 16px;
-  padding-block: 8px;
-  padding-inline: 16px;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #141414;
+#welcome .walking-text:nth-of-type(odd) {
+  text-align: start;
 }
-#welcome .topbar button:hover {
-  background-color: #111;
-  color: #fff;
+#welcome .walking-text:nth-of-type(even) {
+  text-align: end;
+}
+#welcome .walking-text:hover:hover {
+  color: #80ff00;
+}
+#welcome .walking-text-gap {
+  width: 50px;
 }
 
 #showcase {
@@ -138,6 +178,9 @@ section {
   color: #fff;
   text-decoration: none;
 }
+#contact a:hover {
+  color: #80ff00;
+}
 
 .back-to-top {
   position: fixed;
@@ -145,22 +188,19 @@ section {
   bottom: 0;
   transform: translateX(-50%);
   margin-bottom: 40px;
-  font-family: "Work Sans";
-  background-color: transparent;
-  border-radius: 16px;
-  padding-block: 8px;
-  padding-inline: 16px;
-  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #fff;
+  border-radius: 16px;
+  padding: 8px 16px;
+  font-weight: bold;
+  font-family: "Work Sans";
   color: #fff;
-  font-family: "Work Sans";
-  font-family: "Work Sans";
+  background-color: transparent;
+  border: 3px solid #fff;
   z-index: 5;
 }
 .back-to-top:hover {
   background-color: #fff;
-  color: #141414;
+  color: #111;
 }/*# sourceMappingURL=main.css.map */

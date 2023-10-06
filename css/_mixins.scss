@@ -20,38 +20,19 @@
 @mixin paddingInlineDefault {
 	padding-inline: $size5 $size3;
 }
-@mixin buttonStyle1 {
-	font-family: $font-family-1;
-	background-color: transparent;
-	border-radius: $size2;
-	padding-block: $size1;
-	padding-inline: $size2;
-	font-weight: bold;
+@mixin buttonStyle {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: 2px solid $color2;
-	&:hover {
-		background-color: $color1;
-		color: $color3;
-	}
-}
-@mixin buttonStyle2 {
-	font-family: $font-family-1;
-	background-color: transparent;
 	border-radius: $size2;
-	padding-block: $size1;
-	padding-inline: $size2;
+	padding: $size1 $size2;
 	font-weight: bold;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border: 2px solid $color3;
+	font-family: $font-family-1;
 	color: $color3;
-	font-family: $font-family-1;
+	background-color: transparent;
+	border: 3px solid $color3;
 	&:hover {
 		background-color: $color3;
-		color: $color2;
+		color: $color1;
 	}
-	font-family: $font-family-1;
 }

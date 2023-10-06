@@ -42,14 +42,14 @@ document.addEventListener('mouseenter', () => {
 document.addEventListener('mouseleave', () => {
 	cursor.style.opacity = 0;
 });
-const pointerObj = document.querySelectorAll('a');
+const pointerObj = document.querySelectorAll('a, img, video, svg, button');
 pointerObj.forEach(link => {
 	link.addEventListener('mouseenter', () => {
-		gsap.to(cursor, { duration: 0.2, scale: 10 });
+		gsap.to(cursor, { duration: 0.3, scale: 10 });
 	});
 
 	link.addEventListener('mouseleave', () => {
-		gsap.to(cursor, { duration: 0.2, scale: 1 });
+		gsap.to(cursor, { duration: 0.3, scale: 1 });
 	});
 });
 
@@ -74,4 +74,42 @@ tlFullPage.from('.back-to-top', {
 	y: window.innerHeight,
 	duration: 5,
 	scrollTrigger: { scrub: 1 },
+});
+//
+let tlWelcome = gsap.timeline({
+	scrollTrigger: {
+		scrub: true,
+		trigger: '#welcome',
+		start: 'start+=12% start+=10%',
+		end: 'start+=12% start+=10%',
+		endTrigger: '#welcome',
+	},
+});
+tlWelcome.to('.my-picture', {
+	y: window.innerHeight,
+	ease: 'power1.inOut',
+	scrollTrigger: { scrub: 0.3 },
+});
+tlWelcome.from('.topbar', {
+	y: -window.innerHeight,
+	ease: 'power1.inOut',
+	scrollTrigger: { scrub: 0.3 },
+});
+const walkingTextElements = document.querySelectorAll('.walking-text');
+walkingTextElements.forEach((element, index) => {
+	if (index % 2 === 0) {
+		gsap.to(element, {
+			ease: 'power3.inOut',
+			x: window.innerWidth,
+			opacity: 0,
+			scrollTrigger: { scrub: 1 },
+		});
+	} else {
+		gsap.to(element, {
+			ease: 'power3.inOut',
+			x: -window.innerWidth,
+			opacity: 0,
+			scrollTrigger: { scrub: 1 },
+		});
+	}
 });
