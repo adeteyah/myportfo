@@ -27,8 +27,8 @@
 	border-radius: $size2;
 	padding: $size1 $size2;
 	background-color: transparent;
-	color: $color1;
-	border: $border-size solid $color1;
+	color: $color3;
+	border: 1px solid $color3;
 	@include fontDefault;
 	cursor: pointer;
 }
@@ -47,6 +47,6 @@
 	font-size: max(32px, 2.54vw);
 }
 @mixin borderDefault {
-	border: 1px solid $color2;
+	border: 1px solid $color3;
 	border-radius: $border-radius;
 }

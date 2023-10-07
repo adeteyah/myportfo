@@ -12,13 +12,20 @@
 	src: url('../fonts/MonumentExtended-Ultrabold.otf') format('opentype');
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Staatliches&display=swap');
+
+html {
+	font-family: sans-serif;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
 
 body {
 	overflow-y: scroll;
 	scrollbar-width: none;
 	-ms-overflow-style: none;
 }
+
 body::-webkit-scrollbar {
 	width: 0;
 	height: 0;
@@ -34,6 +41,10 @@ img {
 p {
 	@include fontDefault;
 	@include fontNormal;
+}
+
+a {
+	text-decoration: none;
 }
 
 .cursor {
@@ -58,13 +69,11 @@ p {
 	justify-content: center;
 	.container {
 		@include paddingInlineDefault;
-		width: auto;
-		padding-block: $size2;
+		padding-block: $size1;
 		display: flex;
 		justify-content: space-between;
 		gap: $body-inline-size;
 		align-items: center;
-		max-height: 20rem;
 		* {
 			mix-blend-mode: difference;
 		}
@@ -78,7 +87,7 @@ p {
 			align-self: center;
 			z-index: 2;
 		}
-		background-color: rgba(24, 24, 24, 0.925);
+		background-color: rgba(15, 15, 15, 0.985);
 		position: relative;
 		@include marginDefault;
 		@include borderDefault;
@@ -97,7 +106,7 @@ section {
 }
 .section-divider {
 	width: 100%;
-	height: $size3;
+	height: 25vh;
 }
 .bg-1 {
 	background-color: $color1;
@@ -112,6 +121,7 @@ section {
 	background-color: $color4;
 }
 #welcome {
+	background-color: $color1;
 	z-index: 1;
 	display: flex;
 	justify-content: center;
@@ -124,51 +134,52 @@ section {
 		max-height: calc(100svh - ($body-block-size * 2));
 		display: flex;
 		justify-content: center;
-		@include borderDefault;
-		box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
-		background-image: linear-gradient(
-				rgba(14, 14, 14, 0.1) 0.1em,
-				transparent 0.1em
-			),
-			linear-gradient(90deg, rgba(14, 14, 14, 0.1) 0.1em, transparent 0.1em);
-		background-size: $size5 $size5;
-		background-position: center;
+		align-items: center;
+		border-radius: $border-radius;
+		box-shadow: rgba(14, 14, 14, 0.05) 0px 2px 4px 0px inset;
+		background-color: $color2;
+		.background-image {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+			filter: brightness(50%);
+		}
 		.my-picture {
 			width: auto;
 			height: 100svh;
 			@include noMouseEvent;
 		}
 		.walking-texts {
-			width: 100%;
 			position: absolute;
+			width: 100%;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
 			display: flex;
-			justify-content: space-between;
+			justify-content: space-evenly;
 			flex-direction: column;
+			gap: 5vh;
 			overflow: hidden;
-			gap: 1vh;
 		}
 		.walking-text {
 			flex-shrink: 0;
 			white-space: nowrap;
-			color: $color4;
-			font-family: $font-family-2;
-			text-transform: uppercase;
+			user-select: none;
 			&:nth-of-type(odd) {
 				text-align: start;
 			}
 			&:nth-of-type(even) {
 				text-align: end;
+				-webkit-text-fill-color: transparent;
+				-webkit-text-stroke: 0.4vw;
 			}
-			user-select: none;
 			span {
+				font-family: $font-family-2;
 				font-size: 30vh;
-				&:hover {
-					color: $color1;
-				}
-				cursor: pointer;
+				color: $color3;
+				text-transform: uppercase;
 			}
 			@include marginInlineDefault;
 		}
@@ -176,14 +187,24 @@ section {
 }
 
 #showcase {
+	background-color: $color1;
 	z-index: 2;
-
-	.title {
-		@include fontBig;
+	.intro {
 		color: $color2;
-		font-family: $font-family-2;
-		text-align: center;
+		font-family: $font-family-1;
 		text-transform: uppercase;
+		@include fontBig;
+		position: relative;
+		padding-bottom: 2vh;
+	}
+	.intro::after {
+		content: '';
+		width: 100%;
+		height: $size1;
+		background-color: $color2;
+		position: absolute;
+		bottom: 0;
+		left: 0;
 	}
 }
 
@@ -192,6 +213,7 @@ section {
 }
 
 #contact {
+	background-color: $color1;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
@@ -199,7 +221,7 @@ section {
 	a {
 		font-family: $font-family-2;
 		font-size: $font-size-2;
-		color: $color1;
+		color: $color4;
 		text-decoration: none;
 	}
 	z-index: 4;

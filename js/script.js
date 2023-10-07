@@ -40,22 +40,12 @@ document.addEventListener('mouseleave', () => {
 const pointerObj = document.querySelectorAll('a, img, video, svg, button');
 pointerObj.forEach(link => {
 	link.addEventListener('mouseenter', () => {
-		gsap.to(cursor, { duration: 0.3, scale: 10 });
+		gsap.to(cursor, { duration: 0.3, scale: 5 });
 	});
 
 	link.addEventListener('mouseleave', () => {
 		gsap.to(cursor, { duration: 0.3, scale: 1 });
 	});
-});
-//
-let tlFullPage = gsap.timeline({
-	scrollTrigger: {
-		scrub: true,
-		trigger: 'body',
-		start: 'top',
-		end: 'bottom',
-		endTrigger: 'body',
-	},
 });
 //
 let tlWelcome = gsap.timeline({
@@ -72,11 +62,6 @@ tlWelcome.to('.my-picture', {
 	ease: 'power1.inOut',
 	scrollTrigger: { scrub: 0.3 },
 });
-// tlWelcome.from('#navigation', {
-// 	y: window.innerHeight,
-// 	ease: 'power1.inOut',
-// 	scrollTrigger: { scrub: 0.3 },
-// });
 //
 let tlContact = gsap.timeline({
 	scrollTrigger: {
@@ -111,4 +96,33 @@ walkingTextElements.forEach((element, index) => {
 			scrollTrigger: { scrub: 1 },
 		});
 	}
+});
+//const walkingTexts = document.querySelectorAll('.activate-bg');
+const walkingTexts = document.querySelectorAll('.activate-bg');
+const myPicture = document.querySelector('.my-picture');
+
+walkingTexts.forEach(text => {
+	text.addEventListener('mouseenter', () => {
+		// Hide other .activate-bg divs using opacity
+		walkingTexts.forEach(otherText => {
+			if (otherText !== text) {
+				gsap.to([myPicture, otherText], {
+					opacity: 0,
+					ease: 'power3.out',
+					duration: 0.6,
+				});
+			}
+		});
+	});
+
+	text.addEventListener('mouseleave', () => {
+		// Show all .activate-bg divs and .my-picture on mouse leave
+		walkingTexts.forEach(otherText => {
+			gsap.to([myPicture, otherText], {
+				opacity: 1,
+				ease: 'power3.in',
+				duration: 0.6,
+			});
+		});
+	});
 });
