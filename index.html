@@ -13,27 +13,36 @@
 	</head>
 	<body>
 		<div class="cursor"></div>
-		<progress class="progress-bar" value="0" max="100"></progress>
-		<div class="topbar">
-			<img src="img/icon.svg" />
-			<button onclick="lenis.scrollTo('#showcase')">Menu</button>
-		</div>
 		<section id="welcome">
-			<div class="walking-texts">
-				<div class="walking-text"><span>MAKE</span></div>
-				<div class="walking-text"><span>CREATE</span></div>
-				<div class="walking-text"><span>BUILD</span></div>
+			<div class="box">
+				<div class="walking-texts">
+					<div class="walking-text"><span>MAKE</span></div>
+					<div class="walking-text"><span>CREATE</span></div>
+					<div class="walking-text"><span>BUILD</span></div>
+				</div>
+				<img
+					class="my-picture"
+					src="https://www.pngmart.com/files/22/Max-Verstappen-PNG-HD.png"
+					alt="Me" />
 			</div>
-			<img
-				class="my-picture"
-				src="https://www.pngmart.com/files/22/Max-Verstappen-PNG-HD.png"
-				alt="Me" />
 		</section>
+		<!-- <div class="section-divider bg-3"></div> -->
+		<nav id="navigation">
+			<div class="container">
+				<img src="img/icon.svg" />
+				<button onclick="lenis.scrollTo('#welcome')">Home</button>
+				<button onclick="lenis.scrollTo('#showcase')">Showcase</button>
+				<button onclick="lenis.scrollTo('#about')">About</button>
+				<button onclick="lenis.scrollTo('#contact')">Contact</button>
+			</div>
+		</nav>
 		<section id="showcase">
-			<p>Project</p>
+			<p class="title">Designs</p>
+			<p class="title">Designs</p>
+			<p class="title">Projects</p>
 		</section>
 		<section id="about"></section>
-		<section id="contact">
+		<section id="contact" class="bg-4">
 			<a
 				target="_blank"
 				href="https://linktr.ee/adeteyah"
@@ -41,9 +50,6 @@
 				LET'S TALK &#8599;
 			</a>
 		</section>
-		<button class="back-to-top" onclick="lenis.scrollTo('#welcome')">
-			Back To Top &#8593;
-		</button>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.157.0/three.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>

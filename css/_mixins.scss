@@ -3,22 +3,22 @@
 	pointer-events: none;
 }
 @mixin marginDefault {
-	margin: $size5 $size3;
+	margin: $body-block-size $body-inline-size;
 }
 @mixin paddingDefault {
-	padding: $size5 $size3;
+	padding: $body-block-size $body-inline-size;
 }
 @mixin marginBlockDefault {
-	margin-block: $size5 $size3;
+	margin-block: $body-block-size;
 }
 @mixin paddingBlockDefault {
-	padding-block: $size5 $size3;
+	padding-block: $body-block-size;
 }
 @mixin marginInlineDefault {
-	margin-inline: $size5 $size3;
+	margin-inline: $body-inline-size;
 }
 @mixin paddingInlineDefault {
-	padding-inline: $size5 $size3;
+	padding-inline: $body-inline-size;
 }
 @mixin buttonDefault {
 	display: flex;
@@ -27,18 +27,26 @@
 	border-radius: $size2;
 	padding: $size1 $size2;
 	background-color: transparent;
-	color: $color3;
+	color: $color1;
 	border: $border-size solid $color1;
-	background-color: $color1;
 	@include fontDefault;
 	cursor: pointer;
-}
-@mixin buttonOutlined {
-	color: $color1;
-	background-color: transparent;
 }
 @mixin fontDefault {
 	font-family: $font-family-1;
 	letter-spacing: 0.75px;
-	line-height: 20px;
+	line-height: 1.5;
+}
+@mixin fontSmall {
+	font-size: max(12px, 2.54vw);
+}
+@mixin fontNormal {
+	font-size: max(18px, 2.54vw);
+}
+@mixin fontBig {
+	font-size: max(32px, 2.54vw);
+}
+@mixin borderDefault {
+	border: 1px solid $color2;
+	border-radius: $border-radius;
 }

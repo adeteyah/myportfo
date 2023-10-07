@@ -13,18 +13,13 @@ function raf(time) {
 	lenis.raf(time);
 	requestAnimationFrame(raf);
 }
-
 requestAnimationFrame(raf);
-
 lenis.scrollTo('#loader');
-
 //
 const cursor = document.querySelector('.cursor');
 const cursorTimeline = gsap.timeline({ paused: true });
-
 let mouseX = 0;
 let mouseY = 0;
-
 document.addEventListener('mousemove', e => {
 	mouseX = e.clientX;
 	mouseY = e.clientY;
@@ -52,7 +47,6 @@ pointerObj.forEach(link => {
 		gsap.to(cursor, { duration: 0.3, scale: 1 });
 	});
 });
-
 //
 let tlFullPage = gsap.timeline({
 	scrollTrigger: {
@@ -62,11 +56,6 @@ let tlFullPage = gsap.timeline({
 		end: 'bottom',
 		endTrigger: 'body',
 	},
-});
-tlFullPage.to('.progress-bar', {
-	value: 100,
-	ease: 'power3.inOut',
-	scrollTrigger: { scrub: 0.9 },
 });
 //
 let tlWelcome = gsap.timeline({
@@ -83,11 +72,11 @@ tlWelcome.to('.my-picture', {
 	ease: 'power1.inOut',
 	scrollTrigger: { scrub: 0.3 },
 });
-tlWelcome.from('.topbar', {
-	y: -window.innerHeight,
-	ease: 'power1.inOut',
-	scrollTrigger: { scrub: 0.3 },
-});
+// tlWelcome.from('#navigation', {
+// 	y: window.innerHeight,
+// 	ease: 'power1.inOut',
+// 	scrollTrigger: { scrub: 0.3 },
+// });
 //
 let tlContact = gsap.timeline({
 	scrollTrigger: {
@@ -103,11 +92,6 @@ tlContact.from('#contact a', {
 	ease: 'power3.inOut',
 	opacity: 0.5,
 	scrollTrigger: { scrub: 0.3 },
-});
-tlContact.from('.back-to-top', {
-	ease: 'power3.inOut',
-	y: window.innerHeight,
-	scrollTrigger: { scrub: 0.9 },
 });
 //
 const walkingTextElements = document.querySelectorAll('.walking-text');

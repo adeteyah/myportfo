@@ -8,6 +8,17 @@
   font-weight: bold;
   src: url("../fonts/MonumentExtended-Ultrabold.otf") format("opentype");
 }
+body {
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 img {
   width: 100%;
   height: auto;
@@ -20,13 +31,14 @@ img {
 p {
   font-family: "Manrope";
   letter-spacing: 0.75px;
-  line-height: 20px;
+  line-height: 1.5;
+  font-size: max(18px, 2.54vw);
 }
 
 .cursor {
   width: 16px;
   height: 16px;
-  background-color: #80ff00;
+  background-color: #a8eb12;
   border-radius: 50%;
   position: fixed;
   transform: translate(-50%, -50%);
@@ -38,32 +50,58 @@ p {
   pointer-events: none;
 }
 
-.progress-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-       appearance: none;
+#navigation {
   width: 100%;
-  height: 8px;
-  border: none;
-  background: transparent;
-  z-index: 999;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 998;
 }
-
-.progress-bar::-webkit-progress-bar {
-  background: transparent;
+#navigation .container {
+  padding-inline: 24px;
+  width: auto;
+  padding-block: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  max-height: 20rem;
+  background-color: rgba(24, 24, 24, 0.925);
+  position: relative;
+  margin: 32px 24px;
+  border: 1px solid #ababab;
+  border-radius: 8px;
+  border-color: transparent;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
-
-.progress-bar::-webkit-progress-value {
-  background: #80ff00;
-  background-attachment: fixed;
+#navigation .container * {
+  mix-blend-mode: difference;
 }
-
-.progress-bar::-moz-progress-bar {
-  background: #80ff00;
-  background-attachment: fixed;
+#navigation .container img {
+  width: 40px;
+  height: 40px;
+  z-index: 2;
+}
+#navigation .container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: #a8eb12;
+  border: 3px solid #a8eb12;
+  font-family: "Manrope";
+  letter-spacing: 0.75px;
+  line-height: 1.5;
+  cursor: pointer;
+  align-self: center;
+  z-index: 2;
 }
 
 section {
@@ -72,47 +110,49 @@ section {
   overflow: hidden;
 }
 
-.topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+.section-divider {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-block: 40px 24px;
-  z-index: 998;
+  height: 24px;
 }
-.topbar img {
-  width: 40px;
-  height: 40px;
-  margin-inline: 40px 24px;
+
+.bg-1 {
+  background-color: #a8eb12;
 }
-.topbar button {
-  margin-inline: 40px 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 16px;
-  padding: 8px 16px;
-  background-color: transparent;
-  color: #171e10;
-  border: 3px solid #80ff00;
-  background-color: #80ff00;
-  font-family: "Manrope";
-  letter-spacing: 0.75px;
-  line-height: 20px;
-  cursor: pointer;
+
+.bg-2 {
+  background-color: #ababab;
+}
+
+.bg-3 {
+  background-color: #fff;
+}
+
+.bg-4 {
+  background-color: #141414;
 }
 
 #welcome {
+  z-index: 1;
   display: flex;
   justify-content: center;
-  align-items: bottom;
-  background-color: #f6fbf2;
-  z-index: 1;
+  align-items: center;
+  height: 100svh;
 }
-#welcome .my-picture {
+#welcome .box {
+  position: relative;
+  overflow: hidden;
+  min-width: calc(100vw - 48px);
+  max-height: calc(100svh - 64px);
+  display: flex;
+  justify-content: center;
+  border: 1px solid #ababab;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  background-image: linear-gradient(rgba(14, 14, 14, 0.1) 0.1em, transparent 0.1em), linear-gradient(90deg, rgba(14, 14, 14, 0.1) 0.1em, transparent 0.1em);
+  background-size: 40px 40px;
+  background-position: center;
+}
+#welcome .box .my-picture {
   width: auto;
   height: 100svh;
   -webkit-user-select: none;
@@ -120,7 +160,7 @@ section {
           user-select: none;
   pointer-events: none;
 }
-#welcome .walking-texts {
+#welcome .box .walking-texts {
   width: 100%;
   position: absolute;
   top: 50%;
@@ -131,39 +171,44 @@ section {
   flex-direction: column;
   overflow: hidden;
   gap: 1vh;
-  z-index: -1;
 }
-#welcome .walking-text {
+#welcome .box .walking-text {
   flex-shrink: 0;
   white-space: nowrap;
-  color: #171e10;
+  color: #141414;
   font-family: "MonumentExtended";
   text-transform: uppercase;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+  margin-inline: 24px;
 }
-#welcome .walking-text:nth-of-type(odd) {
+#welcome .box .walking-text:nth-of-type(odd) {
   text-align: start;
 }
-#welcome .walking-text:nth-of-type(even) {
+#welcome .box .walking-text:nth-of-type(even) {
   text-align: end;
 }
-#welcome .walking-text span {
+#welcome .box .walking-text span {
   font-size: 30vh;
   cursor: pointer;
 }
-#welcome .walking-text span:hover {
-  color: #80ff00;
+#welcome .box .walking-text span:hover {
+  color: #a8eb12;
 }
 
 #showcase {
-  background-color: #f6fbf2;
   z-index: 2;
+}
+#showcase .title {
+  font-size: max(32px, 2.54vw);
+  color: #ababab;
+  font-family: "MonumentExtended";
+  text-align: center;
+  text-transform: uppercase;
 }
 
 #about {
-  background-color: #171e10;
   z-index: 3;
 }
 
@@ -172,36 +217,11 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #171e10;
   z-index: 4;
 }
 #contact a {
   font-family: "MonumentExtended";
   font-size: 134px;
-  color: #80ff00;
+  color: #a8eb12;
   text-decoration: none;
-}
-
-.back-to-top {
-  position: fixed;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  margin-bottom: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 16px;
-  padding: 8px 16px;
-  background-color: transparent;
-  color: #171e10;
-  border: 3px solid #80ff00;
-  background-color: #80ff00;
-  font-family: "Manrope";
-  letter-spacing: 0.75px;
-  line-height: 20px;
-  cursor: pointer;
-  color: #80ff00;
-  background-color: transparent;
-  z-index: 5;
 }/*# sourceMappingURL=main.css.map */

@@ -14,6 +14,16 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
 
+body {
+	overflow-y: scroll;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+body::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+}
+
 img {
 	width: 100%;
 	height: auto;
@@ -23,6 +33,7 @@ img {
 
 p {
 	@include fontDefault;
+	@include fontNormal;
 }
 
 .cursor {
@@ -37,31 +48,46 @@ p {
 	@include noMouseEvent;
 }
 
-.progress-bar {
-	position: fixed;
-	top: 0;
-	left: 0;
-	-webkit-appearance: none;
-	appearance: none;
+#navigation {
 	width: 100%;
-	height: $size1;
-	border: none;
-	background: transparent;
-	z-index: 999;
-}
-
-.progress-bar::-webkit-progress-bar {
-	background: transparent;
-}
-
-.progress-bar::-webkit-progress-value {
-	background: $color1;
-	background-attachment: fixed;
-}
-
-.progress-bar::-moz-progress-bar {
-	background: $color1;
-	background-attachment: fixed;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	.container {
+		@include paddingInlineDefault;
+		width: auto;
+		padding-block: $size2;
+		display: flex;
+		justify-content: space-between;
+		gap: $body-inline-size;
+		align-items: center;
+		max-height: 20rem;
+		* {
+			mix-blend-mode: difference;
+		}
+		img {
+			width: $size5;
+			height: $size5;
+			z-index: 2;
+		}
+		button {
+			@include buttonDefault;
+			align-self: center;
+			z-index: 2;
+		}
+		background-color: rgba(24, 24, 24, 0.925);
+		position: relative;
+		@include marginDefault;
+		@include borderDefault;
+		border-color: transparent;
+		border-radius: $border-radius;
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+	}
+	z-index: 998;
 }
 
 section {
@@ -69,82 +95,102 @@ section {
 	position: relative;
 	overflow: hidden;
 }
-
-.topbar {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
+.section-divider {
 	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	@include marginBlockDefault;
-	img {
-		width: $size5;
-		height: $size5;
-		@include marginInlineDefault;
-	}
-	button {
-		@include marginInlineDefault;
-		@include buttonDefault;
-	}
-	z-index: 998;
+	height: $size3;
 }
-
+.bg-1 {
+	background-color: $color1;
+}
+.bg-2 {
+	background-color: $color2;
+}
+.bg-3 {
+	background-color: $color3;
+}
+.bg-4 {
+	background-color: $color4;
+}
 #welcome {
+	z-index: 1;
 	display: flex;
 	justify-content: center;
-	align-items: bottom;
-	.my-picture {
-		width: auto;
-		height: 100svh;
-		@include noMouseEvent;
-	}
-	.walking-texts {
-		width: 100%;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		display: flex;
-		justify-content: space-between;
-		flex-direction: column;
+	align-items: center;
+	height: 100svh;
+	.box {
+		position: relative;
 		overflow: hidden;
-		gap: 1vh;
-		z-index: -1;
-	}
-	.walking-text {
-		flex-shrink: 0;
-		white-space: nowrap;
-		color: $color3;
-		font-family: $font-family-2;
-		text-transform: uppercase;
-		&:nth-of-type(odd) {
-			text-align: start;
+		min-width: calc(100vw - ($body-inline-size * 2));
+		max-height: calc(100svh - ($body-block-size * 2));
+		display: flex;
+		justify-content: center;
+		@include borderDefault;
+		box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+		background-image: linear-gradient(
+				rgba(14, 14, 14, 0.1) 0.1em,
+				transparent 0.1em
+			),
+			linear-gradient(90deg, rgba(14, 14, 14, 0.1) 0.1em, transparent 0.1em);
+		background-size: $size5 $size5;
+		background-position: center;
+		.my-picture {
+			width: auto;
+			height: 100svh;
+			@include noMouseEvent;
 		}
-		&:nth-of-type(even) {
-			text-align: end;
+		.walking-texts {
+			width: 100%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			display: flex;
+			justify-content: space-between;
+			flex-direction: column;
+			overflow: hidden;
+			gap: 1vh;
 		}
-		user-select: none;
-		span {
-			font-size: 30vh;
-			&:hover {
-				color: $color1;
+		.walking-text {
+			flex-shrink: 0;
+			white-space: nowrap;
+			color: $color4;
+			font-family: $font-family-2;
+			text-transform: uppercase;
+			&:nth-of-type(odd) {
+				text-align: start;
 			}
-			cursor: pointer;
+			&:nth-of-type(even) {
+				text-align: end;
+			}
+			user-select: none;
+			span {
+				font-size: 30vh;
+				&:hover {
+					color: $color1;
+				}
+				cursor: pointer;
+			}
+			@include marginInlineDefault;
 		}
 	}
-	background-color: $color4;
-	z-index: 1;
 }
+
 #showcase {
-	background-color: $color4;
 	z-index: 2;
+
+	.title {
+		@include fontBig;
+		color: $color2;
+		font-family: $font-family-2;
+		text-align: center;
+		text-transform: uppercase;
+	}
 }
+
 #about {
-	background-color: $color3;
 	z-index: 3;
 }
+
 #contact {
 	height: 100vh;
 	display: flex;
@@ -156,16 +202,5 @@ section {
 		color: $color1;
 		text-decoration: none;
 	}
-	background-color: $color3;
 	z-index: 4;
-}
-.back-to-top {
-	position: fixed;
-	left: 50%;
-	bottom: 0;
-	transform: translateX(-50%);
-	margin-bottom: $size5;
-	@include buttonDefault;
-	@include buttonOutlined;
-	z-index: 5;
 }
