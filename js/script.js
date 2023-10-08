@@ -37,47 +37,80 @@ document.addEventListener('mouseenter', () => {
 document.addEventListener('mouseleave', () => {
 	cursor.style.opacity = 0;
 });
-const pointerObj = document.querySelectorAll('a, img, video, svg, button');
+const pointerObj = document.querySelectorAll(
+	'a, img, video, svg, button, .walking-text span'
+);
 pointerObj.forEach(link => {
 	link.addEventListener('mouseenter', () => {
-		gsap.to(cursor, { duration: 0.3, scale: 5 });
+		gsap.to(cursor, { duration: 0.1, scale: 5 });
 	});
 
 	link.addEventListener('mouseleave', () => {
-		gsap.to(cursor, { duration: 0.3, scale: 1 });
+		gsap.to(cursor, { duration: 0.1, scale: 1 });
 	});
 });
 //
-let tlWelcome = gsap.timeline({
+let tlFullPage = gsap.timeline({
 	scrollTrigger: {
 		scrub: true,
-		trigger: '#welcome',
-		start: 'start+=12% start+=10%',
-		end: 'start+=12% start+=10%',
-		endTrigger: '#welcome',
+		trigger: 'body',
+		start: 'top',
+		end: 'bottom',
+		endTrigger: 'body',
 	},
 });
-tlWelcome.to('.my-picture', {
+tlFullPage.to('.progress-bar', {
+	value: 100,
+	ease: 'power3.inOut',
+	scrollTrigger: { scrub: 0.9 },
+});
+let tlAbout = gsap.timeline({
+	scrollTrigger: {
+		scrub: true,
+		trigger: '#about',
+		start: 'start+=12% start+=10%',
+		end: 'start+=12% start+=10%',
+		endTrigger: '#about',
+	},
+});
+tlAbout.to('.my-picture', {
 	y: window.innerHeight,
 	ease: 'power1.inOut',
 	scrollTrigger: { scrub: 0.3 },
 });
 //
-let tlContact = gsap.timeline({
-	scrollTrigger: {
-		scrub: true,
-		trigger: '#contact',
-		start: 'center+=10% center+=20%',
-		end: 'center+=10% center+=20%',
-		endTrigger: '#contact',
-	},
+// Initialize SplitText
+const text = new SplitText('.header', { type: 'chars, words' });
+
+// Create a timeline for the animation
+const tl = new TimelineMax();
+
+// Set initial properties (off the screen to the right)
+tl.staggerFrom(
+	text.chars,
+	0.5,
+	{ x: 500, opacity: 0, ease: Power4.easeOut },
+	0.1
+);
+
+// Add a delay before reversing the animation
+tl.to({}, 1, {});
+
+// Reverse the animation (from left to right)
+tl.staggerTo(text.chars, 0.5, { x: 0, opacity: 1, ease: Power4.easeOut }, 0.1);
+
+// Play the timeline
+tl.play();
+
+// Ensure that the animation plays only once
+let played = false;
+document.addEventListener('scroll', () => {
+	if (!played && window.scrollY >= 500) {
+		tl.play();
+		played = true;
+	}
 });
-tlContact.from('#contact a', {
-	rotateX: 500,
-	ease: 'power3.inOut',
-	opacity: 0.5,
-	scrollTrigger: { scrub: 0.3 },
-});
+
 //
 const walkingTextElements = document.querySelectorAll('.walking-text');
 walkingTextElements.forEach((element, index) => {
@@ -97,13 +130,11 @@ walkingTextElements.forEach((element, index) => {
 		});
 	}
 });
-//const walkingTexts = document.querySelectorAll('.activate-bg');
 const walkingTexts = document.querySelectorAll('.activate-bg');
 const myPicture = document.querySelector('.my-picture');
 
 walkingTexts.forEach(text => {
 	text.addEventListener('mouseenter', () => {
-		// Hide other .activate-bg divs using opacity
 		walkingTexts.forEach(otherText => {
 			if (otherText !== text) {
 				gsap.to([myPicture, otherText], {
@@ -116,7 +147,6 @@ walkingTexts.forEach(text => {
 	});
 
 	text.addEventListener('mouseleave', () => {
-		// Show all .activate-bg divs and .my-picture on mouse leave
 		walkingTexts.forEach(otherText => {
 			gsap.to([myPicture, otherText], {
 				opacity: 1,

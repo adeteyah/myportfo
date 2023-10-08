@@ -24,6 +24,7 @@ body {
 	overflow-y: scroll;
 	scrollbar-width: none;
 	-ms-overflow-style: none;
+	background-color: $color1;
 }
 
 body::-webkit-scrollbar {
@@ -50,53 +51,41 @@ a {
 .cursor {
 	width: $cursor-size;
 	height: $cursor-size;
-	background-color: $color1;
+	background-color: rgb(134, 133, 239);
 	border-radius: 50%;
 	position: fixed;
 	transform: translate(-50%, -50%);
-	mix-blend-mode: difference;
-	z-index: 999;
+	mix-blend-mode: screen;
 	@include noMouseEvent;
+	z-index: 999;
 }
 
-#navigation {
-	width: 100%;
+.progress-bar {
 	position: fixed;
+	top: 0;
 	left: 0;
-	right: 0;
-	bottom: 0;
-	display: flex;
-	justify-content: center;
-	.container {
-		@include paddingInlineDefault;
-		padding-block: $size1;
-		display: flex;
-		justify-content: space-between;
-		gap: $body-inline-size;
-		align-items: center;
-		* {
-			mix-blend-mode: difference;
-		}
-		img {
-			width: $size5;
-			height: $size5;
-			z-index: 2;
-		}
-		button {
-			@include buttonDefault;
-			align-self: center;
-			z-index: 2;
-		}
-		background-color: rgba(15, 15, 15, 0.985);
-		position: relative;
-		@include marginDefault;
-		@include borderDefault;
-		border-color: transparent;
-		border-radius: $border-radius;
-		backdrop-filter: blur(5px);
-		-webkit-backdrop-filter: blur(5px);
-	}
-	z-index: 998;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 100%;
+	height: calc($size1/2);
+	border: none;
+	background: transparent;
+	z-index: 999;
+}
+
+.progress-bar::-webkit-progress-bar {
+	background: transparent;
+}
+
+.progress-bar::-webkit-progress-value {
+	background: $color4;
+	background-attachment: fixed;
+}
+
+.progress-bar::-moz-progress-bar {
+	background: $color4;
+	background-attachment: fixed;
 }
 
 section {
@@ -120,14 +109,47 @@ section {
 .bg-4 {
 	background-color: $color4;
 }
+
 #welcome {
-	background-color: $color1;
 	z-index: 1;
+	.header {
+		font-size: max(60px, 19.5vw);
+		color: $color3;
+		font-family: $font-family-2;
+		@include marginDefault;
+	}
+}
+
+#showcase {
+	@include marginInlineDefault;
+	z-index: 2;
+	.intro {
+		color: $color4;
+		font-family: $font-family-1;
+		text-transform: uppercase;
+		@include fontBig;
+		position: relative;
+		padding-bottom: 2vh;
+	}
+	.intro::after {
+		content: '';
+		width: 100%;
+		height: calc($size1/2);
+		background-color: $color4;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+}
+
+#about {
+	z-index: 3;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100svh;
 	.box {
+		background-color: $color2;
 		position: relative;
 		overflow: hidden;
 		min-width: calc(100vw - ($body-inline-size * 2));
@@ -136,8 +158,7 @@ section {
 		justify-content: center;
 		align-items: center;
 		border-radius: $border-radius;
-		box-shadow: rgba(14, 14, 14, 0.05) 0px 2px 4px 0px inset;
-		background-color: $color2;
+		box-shadow: rgba(19, 19, 28, 0.45) 0px 25px 20px -20px;
 		.background-image {
 			position: absolute;
 			width: 100%;
@@ -169,6 +190,7 @@ section {
 			user-select: none;
 			&:nth-of-type(odd) {
 				text-align: start;
+				color: $color4;
 			}
 			&:nth-of-type(even) {
 				text-align: end;
@@ -180,41 +202,18 @@ section {
 				font-size: 30vh;
 				color: $color3;
 				text-transform: uppercase;
+				&:hover {
+					color: $color4;
+				}
 			}
 			@include marginInlineDefault;
 		}
 	}
 }
 
-#showcase {
-	background-color: $color1;
-	z-index: 2;
-	.intro {
-		color: $color2;
-		font-family: $font-family-1;
-		text-transform: uppercase;
-		@include fontBig;
-		position: relative;
-		padding-bottom: 2vh;
-	}
-	.intro::after {
-		content: '';
-		width: 100%;
-		height: $size1;
-		background-color: $color2;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-	}
-}
-
-#about {
-	z-index: 3;
-}
-
 #contact {
 	background-color: $color1;
-	height: 100vh;
+	min-height: 100svh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
