@@ -1,52 +1,51 @@
-@mixin noMouseEvent {
-	user-select: none;
+@mixin nomouseevent {
 	pointer-events: none;
+	user-select: none;
 }
-@mixin marginDefault {
-	margin: $body-block-size $body-inline-size;
+
+$radius: 1.6rem;
+$radius-small: calc($radius / 2);
+
+$font-size: 19.65px;
+
+$font-1: (
+	font-family: 'Inter',
+	font-size: $font-size,
+	letter-spacing: -0.5px,
+	line-height: 1.5,
+	font-weight: 400,
+);
+
+$font-2: (
+	font-family: 'Inter',
+	font-size: calc($font-size * 2),
+	letter-spacing: -0.5px,
+	line-height: 1.6,
+	font-weight: 400,
+);
+
+$font-3: (
+	font-family: 'Gabarito',
+	font-size: calc($font-size * 3),
+	letter-spacing: 1.8px,
+	line-height: 1.3,
+	font-weight: 700,
+	text-transform: uppercase,
+);
+
+@mixin font($font) {
+	font-family: map-get($font, font-family);
+	font-size: map-get($font, font-size);
+	letter-spacing: map-get($font, letter-spacing);
+	line-height: map-get($font, line-height);
+	font-weight: map-get($font, font-weight);
+	@if map-has-key($font, 'text-transform') {
+		text-transform: map-get($font, text-transform);
+	}
 }
-@mixin paddingDefault {
-	padding: $body-block-size $body-inline-size;
-}
-@mixin marginBlockDefault {
-	margin-block: $body-block-size;
-}
-@mixin paddingBlockDefault {
-	padding-block: $body-block-size;
-}
-@mixin marginInlineDefault {
-	margin-inline: $body-inline-size;
-}
-@mixin paddingInlineDefault {
-	padding-inline: $body-inline-size;
-}
-@mixin buttonDefault {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: $size2;
-	padding: $size1 $size2;
-	background-color: transparent;
-	color: $color3;
-	border: 1px solid $color3;
-	@include fontDefault;
-	cursor: pointer;
-}
-@mixin fontDefault {
-	font-family: $font-family-1;
-	letter-spacing: 0.75px;
-	line-height: 1.5;
-}
-@mixin fontSmall {
-	font-size: max(12px, 2.54vw);
-}
-@mixin fontNormal {
-	font-size: max(18px, 2.54vw);
-}
-@mixin fontBig {
-	font-size: max(32px, 2.54vw);
-}
-@mixin borderDefault {
-	border: 1px solid $color3;
-	border-radius: $border-radius;
-}
+
+//
+$space-size: 6rem;
+$space-size-xsmall: calc($space-size/3);
+$space-size-small: calc($space-size/2);
+$space-size-big: calc($space-size * 2);

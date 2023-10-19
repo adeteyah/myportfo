@@ -1,21 +1,126 @@
-//
-const lenis = new Lenis({
-	duration: 1.2,
-	easing: t => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
-	direction: 'vertical',
-	gestureDirection: 'vertical',
-	smooth: true,
-	smoothTouch: false,
-	touchMultiplier: 2,
+// dark mode
+const switchTheme = () => {
+	const rootElem = document.documentElement;
+
+	let dataTheme = rootElem.getAttribute('data-theme'),
+		newTheme;
+
+	newTheme = dataTheme == 'light' ? 'dark' : 'light';
+
+	rootElem.setAttribute('data-theme', newTheme);
+
+	localStorage.setItem('theme', newTheme);
+};
+
+document
+	.querySelector('#theme-switcher')
+	.addEventListener('click', switchTheme);
+
+// gsap
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+// gsap
+let tlFullPage = gsap.timeline({
+	scrollTrigger: {
+		scrub: true,
+		trigger: 'body',
+		start: 'top',
+		end: 'bottom',
+		endTrigger: 'body',
+	},
+});
+tlFullPage.to('.progress-bar', {
+	value: 100,
+	ease: 'power1.inOut',
+	scrollTrigger: { scrub: 0.9 },
 });
 
-function raf(time) {
-	lenis.raf(time);
-	requestAnimationFrame(raf);
+// gsap
+let timelineHero = gsap.timeline({
+	scrollTrigger: {
+		scrub: 0.3,
+		trigger: '#hero',
+		start: 'start',
+		end: 'center',
+		endTrigger: '#hero',
+	},
+});
+
+timelineHero.to('.avatar', { opacity: 0 });
+timelineHero.from('#nav', { y: -40, opacity: 0 });
+
+const textElements = document.querySelectorAll('.text');
+
+textElements.forEach((text, index) => {
+	if (index % 2 === 0) {
+		timelineHero.to(text, { x: window.innerWidth, opacity: 0 });
+	} else {
+		timelineHero.to(text, { x: -window.innerWidth, opacity: 0 });
+	}
+});
+
+// gsap
+
+const video = document.querySelector('.video');
+let src = video.currentSrc || video.src;
+
+function once(el, event, fn, opts) {
+	var onceFn = function (e) {
+		el.removeEventListener(event, onceFn);
+		fn.apply(this, arguments);
+	};
+	el.addEventListener(event, onceFn, opts);
+	return onceFn;
 }
-requestAnimationFrame(raf);
-lenis.scrollTo('#loader');
-//
+
+once(document.documentElement, 'touchstart', function (e) {
+	video.play();
+	video.pause();
+});
+
+let timelineVideo = gsap.timeline({
+	defaults: { duration: 1 },
+	scrollTrigger: {
+		trigger: '#reel',
+		start: 'top+=-98% top',
+		end: 'bottom+=10% bottom',
+		scrub: true,
+	},
+});
+
+once(video, 'loadedmetadata', () => {
+	timelineVideo.fromTo(
+		video,
+		{
+			currentTime: 0,
+		},
+		{
+			currentTime: video.duration || 1,
+		}
+	);
+});
+
+setTimeout(function () {
+	if (window['fetch']) {
+		fetch(src)
+			.then(response => response.blob())
+			.then(response => {
+				var blobURL = URL.createObjectURL(response);
+
+				var t = video.currentTime;
+				once(document.documentElement, 'touchstart', function (e) {
+					video.play();
+					video.pause();
+				});
+
+				video.setAttribute('src', blobURL);
+				video.currentTime = t + 0.01;
+			});
+	}
+}, 1000);
+
+// cursor
+
 const cursor = document.querySelector('.cursor');
 const cursorTimeline = gsap.timeline({ paused: true });
 let mouseX = 0;
@@ -37,9 +142,7 @@ document.addEventListener('mouseenter', () => {
 document.addEventListener('mouseleave', () => {
 	cursor.style.opacity = 0;
 });
-const pointerObj = document.querySelectorAll(
-	'a, img, video, svg, button, .walking-text span'
-);
+const pointerObj = document.querySelectorAll('a, img, video, svg, button');
 pointerObj.forEach(link => {
 	link.addEventListener('mouseenter', () => {
 		gsap.to(cursor, { duration: 0.1, scale: 5 });
@@ -49,110 +152,14 @@ pointerObj.forEach(link => {
 		gsap.to(cursor, { duration: 0.1, scale: 1 });
 	});
 });
-//
-let tlFullPage = gsap.timeline({
-	scrollTrigger: {
-		scrub: true,
-		trigger: 'body',
-		start: 'top',
-		end: 'bottom',
-		endTrigger: 'body',
-	},
-});
-tlFullPage.to('.progress-bar', {
-	value: 100,
-	ease: 'power3.inOut',
-	scrollTrigger: { scrub: 0.9 },
-});
-let tlAbout = gsap.timeline({
-	scrollTrigger: {
-		scrub: true,
-		trigger: '#about',
-		start: 'start+=12% start+=10%',
-		end: 'start+=12% start+=10%',
-		endTrigger: '#about',
-	},
-});
-tlAbout.to('.my-picture', {
-	y: window.innerHeight,
-	ease: 'power1.inOut',
-	scrollTrigger: { scrub: 0.3 },
-});
-//
-// Initialize SplitText
-const text = new SplitText('.header', { type: 'chars, words' });
 
-// Create a timeline for the animation
-const tl = new TimelineMax();
+// lenis
+const lenis = new Lenis();
 
-// Set initial properties (off the screen to the right)
-tl.staggerFrom(
-	text.chars,
-	0.5,
-	{ x: 500, opacity: 0, ease: Power4.easeOut },
-	0.1
-);
+lenis.on('scroll', ScrollTrigger.update);
 
-// Add a delay before reversing the animation
-tl.to({}, 1, {});
-
-// Reverse the animation (from left to right)
-tl.staggerTo(text.chars, 0.5, { x: 0, opacity: 1, ease: Power4.easeOut }, 0.1);
-
-// Play the timeline
-tl.play();
-
-// Ensure that the animation plays only once
-let played = false;
-document.addEventListener('scroll', () => {
-	if (!played && window.scrollY >= 500) {
-		tl.play();
-		played = true;
-	}
+gsap.ticker.add(time => {
+	lenis.raf(time * 600);
 });
 
-//
-const walkingTextElements = document.querySelectorAll('.walking-text');
-walkingTextElements.forEach((element, index) => {
-	if (index % 2 === 0) {
-		gsap.to(element, {
-			ease: 'power3.inOut',
-			x: window.innerWidth,
-			opacity: 0,
-			scrollTrigger: { scrub: 1 },
-		});
-	} else {
-		gsap.to(element, {
-			ease: 'power3.inOut',
-			x: -window.innerWidth,
-			opacity: 0,
-			scrollTrigger: { scrub: 1 },
-		});
-	}
-});
-const walkingTexts = document.querySelectorAll('.activate-bg');
-const myPicture = document.querySelector('.my-picture');
-
-walkingTexts.forEach(text => {
-	text.addEventListener('mouseenter', () => {
-		walkingTexts.forEach(otherText => {
-			if (otherText !== text) {
-				gsap.to([myPicture, otherText], {
-					opacity: 0,
-					ease: 'power3.out',
-					duration: 0.6,
-				});
-			}
-		});
-	});
-
-	text.addEventListener('mouseleave', () => {
-		walkingTexts.forEach(otherText => {
-			gsap.to([myPicture, otherText], {
-				opacity: 1,
-				ease: 'power3.in',
-				duration: 0.6,
-			});
-		});
-	});
-});
+gsap.ticker.lagSmoothing(0);

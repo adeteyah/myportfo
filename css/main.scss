@@ -1,63 +1,16 @@
-@import 'mixins';
 @import 'variables';
-
-@font-face {
-	font-family: 'MonumentExtended';
-	src: url('../fonts/MonumentExtended-Regular.otf') format('opentype');
-}
-
-@font-face {
-	font-family: 'MonumentExtended';
-	font-weight: bold;
-	src: url('../fonts/MonumentExtended-Ultrabold.otf') format('opentype');
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Manrope&family=Staatliches&display=swap');
-
-html {
-	font-family: sans-serif;
-	-ms-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
-}
-
-body {
-	overflow-y: scroll;
-	scrollbar-width: none;
-	-ms-overflow-style: none;
-	background-color: $color1;
-}
-
-body::-webkit-scrollbar {
-	width: 0;
-	height: 0;
-}
-
-img {
-	width: 100%;
-	height: auto;
-	object-fit: cover;
-	object-position: center;
-}
-
-p {
-	@include fontDefault;
-	@include fontNormal;
-}
-
-a {
-	text-decoration: none;
-}
+@import 'mixins';
 
 .cursor {
-	width: $cursor-size;
-	height: $cursor-size;
-	background-color: rgb(134, 133, 239);
+	width: $space-size-xsmall;
+	height: $space-size-xsmall;
+	background-color: var(--primary);
 	border-radius: 50%;
 	position: fixed;
 	transform: translate(-50%, -50%);
-	mix-blend-mode: screen;
-	@include noMouseEvent;
+	mix-blend-mode: difference;
 	z-index: 999;
+	@include nomouseevent;
 }
 
 .progress-bar {
@@ -68,7 +21,7 @@ a {
 	-moz-appearance: none;
 	appearance: none;
 	width: 100%;
-	height: calc($size1/2);
+	height: 10px;
 	border: none;
 	background: transparent;
 	z-index: 999;
@@ -79,149 +32,259 @@ a {
 }
 
 .progress-bar::-webkit-progress-value {
-	background: $color4;
+	background: var(--primary);
 	background-attachment: fixed;
 }
 
 .progress-bar::-moz-progress-bar {
-	background: $color4;
+	background: var(--primary);
 	background-attachment: fixed;
 }
 
-section {
-	display: block;
-	position: relative;
-	overflow: hidden;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@include font($font-3);
 }
-.section-divider {
+
+p {
+	@include font($font-1);
+}
+
+a {
+	@include font($font-1);
+	text-decoration: none;
+	color: var(--primary);
+	&:hover {
+		color: var(--hover);
+	}
+}
+
+img,
+video {
 	width: 100%;
-	height: 25vh;
-}
-.bg-1 {
-	background-color: $color1;
-}
-.bg-2 {
-	background-color: $color2;
-}
-.bg-3 {
-	background-color: $color3;
-}
-.bg-4 {
-	background-color: $color4;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+	-o-object-fit: cover;
+	-o-object-position: center;
 }
 
-#welcome {
-	z-index: 1;
-	.header {
-		font-size: max(60px, 19.5vw);
-		color: $color3;
-		font-family: $font-family-2;
-		@include marginDefault;
+button {
+	background: none;
+	color: var(--primary);
+	border: 1px solid var(--primary);
+	border-radius: $radius;
+	@include font($font-1);
+	padding-block: calc($space-size-small / 2);
+	padding-inline: calc($space-size-small / 1);
+
+	&:hover {
+		color: var(--hover);
+		border: 1px solid var(--hover);
 	}
 }
 
-#showcase {
-	@include marginInlineDefault;
-	z-index: 2;
-	.intro {
-		color: $color4;
-		font-family: $font-family-1;
-		text-transform: uppercase;
-		@include fontBig;
-		position: relative;
-		padding-bottom: 2vh;
-	}
-	.intro::after {
-		content: '';
-		width: 100%;
-		height: calc($size1/2);
-		background-color: $color4;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-	}
+//
+
+body {
+	color: var(--primary);
+	background-color: var(--secondary);
 }
 
-#about {
-	z-index: 3;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100svh;
-	.box {
-		background-color: $color2;
-		position: relative;
-		overflow: hidden;
-		min-width: calc(100vw - ($body-inline-size * 2));
-		max-height: calc(100svh - ($body-block-size * 2));
+#nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	.wrapper {
+		margin-top: $space-size-small;
+		margin-inline: $space-size-big;
+		border-radius: $radius-small;
+		padding-inline: $space-size-small;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: var(--semitransparentSecondary);
+		backdrop-filter: blur(10px);
+		div {
+			flex: 1 1 0;
+			width: 0;
+		}
+		.icon-wrapper {
+			a {
+				svg {
+					width: 2rem;
+					height: 2rem;
+					vertical-align: bottom;
+					path {
+						fill: var(--primary);
+					}
+				}
+			}
+		}
+		.menu-wrapper {
+			display: flex;
+			.item {
+				text-align: center;
+				a {
+					@include font($font-1);
+				}
+				margin-block: 1rem;
+			}
+		}
+		.dark-mode {
+			text-align: end;
+			.button-wrapper {
+				width: 100%;
+				button {
+					border: 0;
+					padding: 0;
+				}
+			}
+		}
+		box-shadow: rgba(127, 127, 127, 0.2) 0px 7px 29px 0px;
+	}
+	z-index: 99;
+}
+
+section {
+	position: relative;
+}
+
+#hero {
+	background-color: var(--secondary);
+	.wrapper {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		border-radius: $border-radius;
-		box-shadow: rgba(19, 19, 28, 0.45) 0px 25px 20px -20px;
-		.background-image {
+		height: 98vh;
+		max-width: 1920px;
+		max-height: 1080px;
+		margin: 0 auto;
+		position: relative;
+		overflow: hidden;
+		.texts-wrapper {
 			position: absolute;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			object-position: center;
-			filter: brightness(50%);
-		}
-		.my-picture {
-			width: auto;
-			height: 100svh;
-			@include noMouseEvent;
-		}
-		.walking-texts {
-			position: absolute;
-			width: 100%;
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
-			display: flex;
-			justify-content: space-evenly;
-			flex-direction: column;
-			gap: 5vh;
-			overflow: hidden;
-		}
-		.walking-text {
-			flex-shrink: 0;
-			white-space: nowrap;
-			user-select: none;
-			&:nth-of-type(odd) {
-				text-align: start;
-				color: $color4;
-			}
-			&:nth-of-type(even) {
-				text-align: end;
-				-webkit-text-fill-color: transparent;
-				-webkit-text-stroke: 0.4vw;
-			}
-			span {
-				font-family: $font-family-2;
-				font-size: 30vh;
-				color: $color3;
-				text-transform: uppercase;
-				&:hover {
-					color: $color4;
+			width: 100%;
+			height: auto;
+			.texts {
+				display: flex;
+				justify-content: space-between;
+				flex-direction: column;
+				height: 100%;
+				overflow: hidden;
+				font-style: italic;
+				span {
+					.text {
+						@include font($font-3);
+						font-size: 10rem;
+						white-space: nowrap;
+						margin-inline: $space-size-big;
+					}
+				}
+				span:nth-child(even) {
+					display: flex;
+					justify-content: start;
+				}
+				span:nth-child(even) {
+					display: flex;
+					justify-content: end;
+					.text {
+						color: var(--secondary);
+						text-shadow: 1.41px 1.41px var(--primary),
+							2px 0 var(--primary), 1.41px -1.41px var(--primary),
+							0 -2px var(--primary), -1.41px -1.41px var(--primary),
+							-2px 0 var(--primary), -1.41px 1.41px var(--primary),
+							0 2px var(--primary);
+						&:hover {
+							text-shadow: 1.41px 1.41px var(--hover), 2px 0 var(--hover),
+								1.41px -1.41px var(--hover), 0 -2px var(--hover),
+								-1.41px -1.41px var(--hover), -2px 0 var(--hover),
+								-1.41px 1.41px var(--hover), 0 2px var(--hover);
+						}
+					}
 				}
 			}
-			@include marginInlineDefault;
+			z-index: 1;
+		}
+		.avatar-wrapper {
+			height: 100%;
+			z-index: 2;
+			align-self: flex-end;
+			.avatar {
+				vertical-align: bottom;
+			}
+			@include nomouseevent;
 		}
 	}
+	z-index: 1;
 }
 
-#contact {
-	background-color: $color1;
-	min-height: 100svh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	a {
-		font-family: $font-family-2;
-		font-size: $font-size-2;
-		color: $color4;
-		text-decoration: none;
+#reel {
+	.wrapper {
+		padding-inline: $space-size;
+		.video {
+			max-height: 80vh;
+			border-radius: $radius;
+			@include nomouseevent;
+		}
 	}
-	z-index: 4;
+	z-index: 1;
+}
+
+#work {
+	background-color: var(--secondary);
+	.wrapper {
+		max-width: 1920px;
+		margin: 0 auto;
+		padding: $space-size;
+		.gallery-wrapper {
+			.gallery {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				grid-template-rows: repeat(24, 1fr);
+				gap: $space-size-small;
+				img {
+					border-radius: $radius;
+				}
+			}
+			.item-1 {
+				grid-area: 1 / 1 / 8 / 2;
+			}
+			.item-2 {
+				grid-area: 1 / 2 / 5 / 3;
+			}
+			.item-3 {
+				grid-area: 1 / 3 / 7 / 4;
+			}
+			.item-4 {
+				grid-area: 7 / 3 / 13 / 4;
+			}
+			.item-5 {
+				grid-area: 5 / 2 / 13 / 3;
+			}
+			.item-6 {
+				grid-area: 8 / 1 / 16 / 2;
+			}
+			.item-7 {
+				grid-area: 16 / 1 / 20 / 2;
+			}
+			.item-8 {
+				grid-area: 13 / 2 / 20 / 4;
+			}
+			.item-9 {
+				grid-area: 20 / 3 / 25 / 4;
+			}
+			.item-10 {
+				grid-area: 20 / 1 / 25 / 3;
+			}
+		}
+	}
+	z-index: 2;
 }

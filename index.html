@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,50 +8,168 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="img/32x32.png" />
 		<link
 			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+			href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
 		<link rel="stylesheet" href="css/main.css" />
+		<script type="text/javascript" defer>
+			let localS = localStorage.getItem('theme');
+			if (localS == 'dark') {
+				document.documentElement.setAttribute('data-theme', 'dark');
+			}
+		</script>
 	</head>
 	<body>
 		<div class="cursor"></div>
 		<progress class="progress-bar" value="0" max="100"></progress>
-		<section id="welcome">
-			<h1 class="header">Aditiya Rachman</h1>
-		</section>
-		<div class="section-divider"></div>
-		<section id="showcase">
-			<div class="intro">Showcase</div>
-			<p class="title">Designs</p>
-			<p class="title">Designs</p>
-			<p class="title">Projects</p>
-		</section>
-		<section id="about">
-			<div class="box">
-				<div class="background-image"></div>
-				<div class="walking-texts">
-					<div class="walking-text">
-						<span class="activate-bg">DESIGNER</span>
+		<nav id="nav">
+			<div class="wrapper">
+				<div class="icon-wrapper">
+					<a href="#" onclick="lenis.scrollTo('#hero')">
+						<svg
+							viewBox="0 0 100 100"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M25.4999 50H20.9312C9.84025 50 3.22484 53.9842 1.085 61.9527C0.361675 64.5769 1.52588e-05 67.5851 1.52588e-05 70.9773V74.9999H25.4999V62.5L25.4999 50Z" />
+							<path
+								d="M25.0002 50H29.0689C40.1599 50 46.7753 53.9842 48.9151 61.9527C49.6385 64.5769 50.0001 67.5851 50.0001 70.9773V74.9999H25.0002V62.5L25.0002 50Z" />
+							<path
+								d="M50.0001 50H54.0688C65.1598 50 71.7752 53.9842 73.9151 61.9527C74.6384 64.5769 75.0001 67.5851 75.0001 70.9773V74.9999H50.0001L50.0001 62.5V50Z" />
+							<path
+								d="M100 50H95.9313C84.8403 50 78.2249 53.9842 76.0851 61.9527C75.3617 64.5769 75.0001 67.5851 75.0001 70.9773V74.9999H100V62.5V50Z" />
+							<path
+								d="M76.0002 75H70.9315C59.8406 75 53.2251 78.9842 51.0853 86.9527C50.362 89.5769 50.0003 92.5851 50.0003 95.9773V99.9999H76.0002V87.5V75Z" />
+							<path
+								d="M50.0001 20.001L50.0001 29.0697C50.0001 40.1607 46.0159 46.7761 38.0474 48.9159C35.4232 49.6392 32.4151 50.0009 29.0229 50.0009L25.0002 50.0009L25.0002 20.001L37.5001 20.001L50.0001 20.001Z" />
+							<path
+								d="M12.5002 70.001L12.5002 79.0697C12.5002 90.1607 16.4845 96.7761 24.453 98.9159C27.0771 99.6392 30.0853 100.001 33.4775 100.001L37.5002 100.001L37.5002 70.001L25.0003 70.001L12.5002 70.001Z" />
+							<path
+								d="M100 73.999L100 79.0677C100 90.1587 96.0158 96.7741 88.0473 98.914C85.4231 99.6373 82.4149 99.999 79.0227 99.999L75.0001 99.999L75.0001 73.999L87.5 73.999L100 73.999Z" />
+							<path
+								d="M78.5004 70.999L78.5004 72.5586C78.5004 75.9712 77.3052 78.0067 74.9146 78.6652C74.1274 78.8877 73.2249 78.999 72.2072 78.999L71.0004 78.999L71.0004 70.999L74.7504 70.999L78.5004 70.999Z" />
+							<path
+								d="M100 25L100 29.0687C100 40.1597 96.0158 46.7751 88.0473 48.9149C85.4231 49.6383 82.4149 49.9999 79.0227 49.9999L70.0001 49.9999L70.0001 25L87.5 25L100 25Z" />
+							<path
+								d="M0.000244141 50L0.000243963 45.9313C0.000243478 34.8403 3.98449 28.2249 11.953 26.0851C14.5771 25.3617 17.5853 25.0001 20.9775 25.0001L30.0002 25.0001L30.0002 50L12.5003 50L0.000244141 50Z" />
+							<path
+								d="M50.0001 25L50.0001 20.9313C50.0001 9.84031 46.0159 3.22489 38.0474 1.08505C35.4232 0.36173 32.4151 6.78959e-05 29.0229 6.77476e-05L25.0002 6.75718e-05L25.0002 25L37.5001 25L50.0001 25Z" />
+							<path
+								d="M100 25L100 20.9313C100 9.84031 96.0158 3.22489 88.0473 1.08505C85.4231 0.36173 82.4149 6.78959e-05 79.0227 6.77476e-05L70.0001 6.73532e-05L70.0001 25L87.5 25L100 25Z" />
+							<path
+								d="M0.000244141 25L0.000243963 20.9313C0.000243478 9.84031 3.98449 3.22489 11.953 1.08505C14.5771 0.36173 17.5853 6.78959e-05 20.9775 6.77476e-05L30.0002 6.73532e-05L30.0002 25L12.5003 25L0.000244141 25Z" />
+							<path d="M50.0001 0H76V24.9999H50.0001V0Z" />
+							<path
+								d="M50.0001 20.001H75.0001V50.0009H50.0001V20.001Z" />
+						</svg>
+					</a>
+				</div>
+				<div class="menu-wrapper">
+					<div class="item">
+						<a href="#" onclick="lenis.scrollTo('#hero')">Home</a>
 					</div>
-					<div class="walking-text">
-						<span class="activate-bg">DEVELOPER</span>
+					<div class="item">
+						<a href="#" onclick="lenis.scrollTo('#work')">Work</a>
+					</div>
+					<div class="item">
+						<a href="#" onclick="lenis.scrollTo('#about')">About</a>
+					</div>
+					<div class="item">
+						<a href="#" onclick="lenis.scrollTo('#contact')">Contact</a>
 					</div>
 				</div>
-				<img
-					class="my-picture"
-					src="https://www.pngmart.com/files/22/Max-Verstappen-PNG-HD.png"
-					alt="Me" />
+				<div class="dark-mode">
+					<div class="button-wrapper">
+						<button id="theme-switcher">Toggle &#x263C;</button>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<section id="hero">
+			<div class="wrapper">
+				<div class="texts-wrapper">
+					<div class="texts">
+						<span>
+							<a href="#" class="text">UI/UX Designer</a>
+						</span>
+						<span>
+							<a href="#" class="text">Brand Identity</a>
+						</span>
+						<span>
+							<a href="#" class="text">Fullstack Dev</a>
+						</span>
+					</div>
+				</div>
+				<div class="avatar-wrapper">
+					<img
+						class="avatar"
+						src="https://images.pngnice.com/download/2300/Max-Verstappen-PNG-HD.png" />
+				</div>
 			</div>
 		</section>
-		<section id="contact">
-			<a target="_blank" href="https://linktr.ee/adeteyah">
-				LET'S TALK &#8599;
-			</a>
+		<section id="reel">
+			<div class="wrapper">
+				<video
+					class="video"
+					playsinline="true"
+					webkit-playsinline="true"
+					preload="auto"
+					muted="muted">
+					<source src="video/output.mp4" type="video/mp4" />
+					Your browser does not support the video tag.
+				</video>
+			</div>
 		</section>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+		<section id="work">
+			<div class="wrapper">
+				<div class="gallery-wrapper">
+					<div class="gallery">
+						<a class="item-1" href="#">
+							<img
+								src="https://i.fbcd.co/products/original/app-screens-for-showing-mobile-ui-design-db-07fc38ff37b562c0adfe2cd334388afa4928f3f21db79ff5aad241f6c47bf443.jpg" />
+						</a>
+						<a class="item-2" href="#">
+							<img
+								src="https://i.fbcd.co/products/original/app-screens-for-showing-mobile-ui-design-db-07fc38ff37b562c0adfe2cd334388afa4928f3f21db79ff5aad241f6c47bf443.jpg" />
+						</a>
+						<a class="item-3" href="#">
+							<img
+								src="https://i.fbcd.co/products/original/app-screens-for-showing-mobile-ui-design-db-07fc38ff37b562c0adfe2cd334388afa4928f3f21db79ff5aad241f6c47bf443.jpg" />
+						</a>
+						<a class="item-4" href="#">
+							<img
+								src="https://i.fbcd.co/products/original/app-screens-for-showing-mobile-ui-design-db-07fc38ff37b562c0adfe2cd334388afa4928f3f21db79ff5aad241f6c47bf443.jpg" />
+						</a>
+						<a class="item-5" href="#">
+							<img
+								src="https://i.fbcd.co/products/original/app-screens-for-showing-mobile-ui-design-db-07fc38ff37b562c0adfe2cd334388afa4928f3f21db79ff5aad241f6c47bf443.jpg" />
+						</a>
+						<a class="item-6" href="#">
+							<img
+								src="https://i.fbcd.co/products/original/app-screens-for-showing-mobile-ui-design-db-07fc38ff37b562c0adfe2cd334388afa4928f3f21db79ff5aad241f6c47bf443.jpg" />
+						</a>
+						<a class="item-7" href="#">
+							<img
+								src="https://i.fbcd.co/products/original/app-screens-for-showing-mobile-ui-design-db-07fc38ff37b562c0adfe2cd334388afa4928f3f21db79ff5aad241f6c47bf443.jpg" />
+						</a>
+						<a class="item-8" href="#">
+							<img
+								src="https://i.fbcd.co/products/original/app-screens-for-showing-mobile-ui-design-db-07fc38ff37b562c0adfe2cd334388afa4928f3f21db79ff5aad241f6c47bf443.jpg" />
+						</a>
+						<a class="item-9" href="#">
+							<img
+								src="https://i.fbcd.co/products/original/app-screens-for-showing-mobile-ui-design-db-07fc38ff37b562c0adfe2cd334388afa4928f3f21db79ff5aad241f6c47bf443.jpg" />
+						</a>
+						<a class="item-10" href="#">
+							<img
+								src="https://i.fbcd.co/products/original/app-screens-for-showing-mobile-ui-design-db-07fc38ff37b562c0adfe2cd334388afa4928f3f21db79ff5aad241f6c47bf443.jpg" />
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.26/bundled/lenis.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.25/bundled/lenis.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/split-type@0.3.3/umd/index.min.js"></script>
-		<script src="https://unpkg.com/split-type"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 		<script src="js/script.js"></script>
 	</body>
 </html>

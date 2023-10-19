@@ -1,22 +1,24 @@
-$size1: 16px;
-$size2: 32px;
-$size3: 48px;
-$size4: 64px;
-$size5: 80px;
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@700&&family=Inter:wght@400;700&display=swap');
 
-$border-radius: 8px;
-$cursor-size: $size1;
+:root {
+	--dark: rgb(12, 12, 12);
+	--light: rgb(255, 255, 255);
+	--accent-3: rgb(180, 180, 180); //hover on light
+	--accent-4: rgb(90, 90, 90); //hover on dark
+	--transparent-percent: 0.92;
+}
 
-$body-block-size: $size4;
-$body-inline-size: $size3;
-
-$color1: #161618;
-$color2: #212124;
-$color3: #fff;
-$color4: #8685ef;
-
-$font-family-1: 'Manrope';
-$font-family-2: 'Staatliches';
-
-$font-size-1: 40px;
-$font-size-2: 134px;
+:root[data-theme='light'] {
+	--primary: var(--light);
+	--secondary: var(--dark);
+	--hover: var(--accent-3);
+	--semitransparentPrimary: rgba(255, 255, 255, var(--transparent-percent));
+	--semitransparentSecondary: rgba(12, 12, 12, var(--transparent-percent));
+}
+:root[data-theme='dark'] {
+	--primary: var(--dark);
+	--secondary: var(--light);
+	--hover: var(--accent-4);
+	--semitransparentPrimary: rgba(12, 12, 12, var(--transparent-percent));
+	--semitransparentSecondary: rgba(255, 255, 255, var(--transparent-percent));
+}
