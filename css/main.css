@@ -349,15 +349,16 @@ section {
 
 #about {
   padding-block: 12rem;
-  background-color: var(--accent);
 }
 #about .wrapper {
+  overflow: hidden;
   max-width: 1920px;
   margin: 0 auto;
   padding-inline: 6rem;
   z-index: 1;
 }
 #about .wrapper .title {
+  white-space: nowrap;
   font-family: "Unbounded";
   font-size: 58.95px;
   letter-spacing: 1.8px;
@@ -375,6 +376,9 @@ section {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+#about .wrapper .awards {
+  padding: 0;
 }
 #about .wrapper .awards .awards-item {
   display: flex;

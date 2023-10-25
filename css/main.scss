@@ -299,11 +299,12 @@ section {
 
 #about {
 	padding-block: $space-size-big;
-	background-color: var(--accent);
 	.wrapper {
+		overflow: hidden;
 		@include wrapper;
 		padding-inline: $space-size;
 		.title {
+			white-space: nowrap;
 			@include font($font-3);
 			margin-bottom: $space-size-big;
 		}
@@ -315,6 +316,7 @@ section {
 			}
 		}
 		.awards {
+			padding: 0;
 			.awards-item {
 				display: flex;
 				justify-content: space-between;

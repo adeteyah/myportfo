@@ -83,6 +83,22 @@ gsap.to(bgWork, {
 	},
 });
 
+//gsap
+let tlAbout = gsap.timeline({
+	scrollTrigger: {
+		scrub: true,
+		trigger: '#about',
+		start: 'top',
+		end: 'center=-100',
+		markers:1,
+		endTrigger: '#about',
+	},
+});
+tlAbout.to('#about .wrapper .title', {
+	x: -window.innerWidth,
+	scrollTrigger: { scrub: true },
+});
+
 // gsap
 const video = document.querySelector('.video');
 let src = video.currentSrc || video.src;
