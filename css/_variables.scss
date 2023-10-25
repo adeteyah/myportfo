@@ -1,24 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@700&&family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded&family=Inter:wght@400;700&display=swap');
 
 :root {
-	--dark: rgb(12, 12, 12);
-	--light: rgb(255, 255, 255);
-	--accent-3: rgb(180, 180, 180); //hover on light
-	--accent-4: rgb(90, 90, 90); //hover on dark
-	--transparent-percent: 0.92;
+	--dark: rgb(24, 24, 24);
+	--light: rgb(250, 250, 250);
+	--accent: rgb(221, 220, 167);
+	--shadow: rgba(0, 0, 0, 0.05);
 }
 
 :root[data-theme='light'] {
-	--primary: var(--light);
-	--secondary: var(--dark);
-	--hover: var(--accent-3);
-	--semitransparentPrimary: rgba(255, 255, 255, var(--transparent-percent));
-	--semitransparentSecondary: rgba(12, 12, 12, var(--transparent-percent));
-}
-:root[data-theme='dark'] {
 	--primary: var(--dark);
 	--secondary: var(--light);
-	--hover: var(--accent-4);
-	--semitransparentPrimary: rgba(12, 12, 12, var(--transparent-percent));
-	--semitransparentSecondary: rgba(255, 255, 255, var(--transparent-percent));
+	--hover: var(--accent);
+	--navbar-bg: #fff;
+	--navbar-color: #fff;
+}
+
+:root[data-theme='dark'] {
+	--primary: var(--light);
+	--secondary: var(--dark);
+	--hover: var(--accent);
+	--navbar-bg: #181818;
+	--navbar-color: #fff;
 }
