@@ -11,15 +11,10 @@
   letter-spacing: map-get($font, letter-spacing);
   line-height: map-get($font, line-height);
   font-weight: map-get($font, font-weight);
-
-  @media (min-width: #{$mq-phone}px) {
-    font-size: calc(
-      #{$fontMin}px + (#{$fontMax} - #{$fontMin}) *
-        ((100vw - #{$mq-phone}px) / (#{$mq-desktop} - #{$mq-phone}))
-    );
+  @media (min-width: 320px) {
+    font-size: $valueMin * 1rem;
   }
-
-  @media (min-width: #{$mq-desktop}px) {
+  @media (min-width: 1281px) {
     font-size: $valueMax * 1rem;
   }
 }

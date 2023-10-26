@@ -39,13 +39,10 @@
             </div>
           </div>
           <div class="dark-mode">
-            <div class="button-wrapper">
-              <button id="theme-switcher">Toggle &#x263C;</button>
-            </div>
+            <div class="button-wrapper"></div>
           </div>
         </div>
       </nav>
-
       <section id="hero">
         <div class="wrapper">
           <div class="lead-wrapper">
@@ -62,52 +59,128 @@
           <div class="helper-wrapper">
             <div class="info-wrapper">
               <div class="info">
-                <div class="item">Work &#8595;</div>
+                <div class="item">Work</div>
               </div>
             </div>
             <div class="filter-wrapper">
               <div class="filter">
                 <div class="item">
-                  <button onclick="">&#x2637; Grid</button>
+                  <button onclick="workShowGrid()">&#x2637; Grid</button>
                 </div>
                 <div class="item">
-                  <button onclick="">&#x2630; List</button>
+                  <button onclick="workShowList()">&#x2630; List</button>
                 </div>
               </div>
             </div>
           </div>
           <div class="work-wrapper">
-            <div class="work">
-              <a class="item-0" href="#">
+            <div id="gallery-work">
+              <div id="work-images">
+                <div
+                  class="work-image"
+                  style="
+                    background-image: url('https://images.pexels.com/photos/14696910/pexels-photo-14696910.jpeg');
+                  "
+                ></div>
+                <div
+                  class="work-image"
+                  style="
+                    background-image: url('https://images.pexels.com/photos/8969179/pexels-photo-8969179.jpeg');
+                  "
+                ></div>
+                <div
+                  class="work-image"
+                  style="
+                    background-image: url('https://images.pexels.com/photos/16677943/pexels-photo-16677943.jpeg');
+                  "
+                ></div>
+                <div
+                  class="work-image"
+                  style="
+                    background-image: url('https://images.pexels.com/photos/16677943/pexels-photo-16677943.jpeg');
+                  "
+                ></div>
+                <div
+                  class="work-image"
+                  style="
+                    background-image: url('https://images.pexels.com/photos/16677943/pexels-photo-16677943.jpeg');
+                  "
+                ></div>
+                <div
+                  class="work-image"
+                  style="
+                    background-image: url('https://images.pexels.com/photos/16677943/pexels-photo-16677943.jpeg');
+                  "
+                ></div>
+              </div>
+            </div>
+            <div class="work" data-show="grid">
+              <div class="item item-0">
                 <img
                   src="https://raw.githubusercontent.com/adeteyah/Tema-Line-2019/master/Apex%20Legends/Apex%20Mockup.png"
                 />
-              </a>
-              <a class="item-1" href="#">
+                <div class="list">
+                  <a href="#"
+                    >GoJek
+                    <div>&#8594;</div>
+                  </a>
+                </div>
+              </div>
+              <div class="item item-1">
                 <img
                   src="https://raw.githubusercontent.com/adeteyah/Tema-Line-2019/master/Arctic%20Monkeys/Arctic%20Mockup.png"
                 />
-              </a>
-              <a class="item-2" href="#">
+                <div class="list">
+                  <a href="#"
+                    >ShareIt
+                    <div>&#8594;</div>
+                  </a>
+                </div>
+              </div>
+              <div class="item item-2">
                 <img
                   src="https://raw.githubusercontent.com/adeteyah/Tema-Line-2019/master/Billie/Billie%20Mockup.png"
                 />
-              </a>
-              <a class="item-3" href="#">
+                <div class="list">
+                  <a href="#"
+                    >Instagram
+                    <div>&#8594;</div>
+                  </a>
+                </div>
+              </div>
+              <div class="item item-3">
                 <img
                   src="https://raw.githubusercontent.com/adeteyah/Tema-Line-2019/master/BTS/BTS%20Mockup.png"
                 />
-              </a>
-              <a class="item-4" href="#">
+                <div class="list">
+                  <a href="#"
+                    >LINE
+                    <div>&#8594;</div>
+                  </a>
+                </div>
+              </div>
+              <div class="item item-4">
                 <img
                   src="https://miro.medium.com/v2/resize:fit:2000/1*TEjMGT3zZKz2MaAZBZkXhw.png"
                 />
-              </a>
-              <a class="item-5" href="#">
+                <div class="list">
+                  <a href="#"
+                    >X
+                    <div>&#8594;</div>
+                  </a>
+                </div>
+              </div>
+              <div class="item item-5" href="#">
                 <img
                   src="https://miro.medium.com/v2/resize:fit:1400/1*lcXPKR9v39pUicSIWX8niA.jpeg"
                 />
-              </a>
+                <div class="list">
+                  <a href="#"
+                    >Glints
+                    <div>&#8594;</div>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -157,6 +230,7 @@
           <a href="mailto:adeteyah@gmail.com">Get In Touch</a>
         </div>
       </section>
+      <button id="theme-switcher">Toggle &#x263C;</button>
     </div>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.26/bundled/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
