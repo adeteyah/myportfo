@@ -41,46 +41,19 @@ let timelineHero = gsap.timeline({
 		scrub: 0.3,
 		trigger: '#hero',
 		start: 'start',
-		end: 'center',
+		end: 'center 20%',
 		endTrigger: '#hero',
 	},
 });
 
-const textElements = document.querySelectorAll('.text');
+const textElements = document.querySelectorAll('.lead .item');
 
 textElements.forEach((text, index) => {
 	if (index % 2 === 0) {
-		timelineHero.to(text, { x: 200, opacity: 0 });
+		timelineHero.to(text, { skewX: 4, opacity: 0.8 });
 	} else {
-		timelineHero.to(text, { x: -200, opacity: 0 });
+		timelineHero.to(text, { skewX: -4, opacity: 0.8 });
 	}
-});
-
-// gsap
-const bgWork = document.querySelector('#work .bg');
-let rotation = 0;
-
-gsap.to(bgWork, {
-	scrollTrigger: {
-		trigger: '#work',
-		start: 'top top',
-		end: 'bottom bottom',
-		scrub: true,
-		onUpdate: self => {
-			const progress = self.progress;
-			if (progress < 0.5) {
-				gsap.set(bgWork, {
-					opacity: progress * 2,
-					rotationY: '-=1_cw',
-				});
-			} else {
-				gsap.set(bgWork, {
-					opacity: 2 - progress * 2,
-					rotationX: '+=1_cw',
-				});
-			}
-		},
-	},
 });
 
 // gsap
@@ -167,27 +140,26 @@ document.addEventListener('mouseleave', () => {
 const pointerObj = document.querySelectorAll('a, img, video, svg, button');
 pointerObj.forEach(link => {
 	link.addEventListener('mouseenter', () => {
-		gsap.to(cursor, { duration: 0.1, scale: 1 });
+		gsap.to(cursor, { duration: 0.1, scale: 0.5 });
 	});
-
+	
 	link.addEventListener('mouseleave', () => {
-		gsap.to(cursor, { duration: 0.1, scale: 0 });
+		gsap.to(cursor, { duration: 0.1, scale: 2 });
 	});
 });
 
 // gsap
-const items = document.querySelectorAll('.gallery a');
+const items = document.querySelectorAll('.work a');
 
 items.forEach(item => {
 	gsap.to(item, {
-		y: gsap.utils.random(-400, 0),
-		opacity: 0,
+		opacity: 0.3,
 		scrollTrigger: {
 			trigger: item,
 			endTrigger: item,
 			start: 'top',
 			end: 'bottom',
-			ease: 'power1.out',
+			ease: 'power3.in',
 			scrub: true,
 		},
 	});
@@ -199,7 +171,7 @@ const lenis = new Lenis();
 lenis.on('scroll', ScrollTrigger.update);
 
 gsap.ticker.add(time => {
-	lenis.raf(time * 400);
+	lenis.raf(time * 600);
 });
 
 gsap.ticker.lagSmoothing(0);
