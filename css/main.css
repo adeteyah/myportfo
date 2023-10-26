@@ -297,6 +297,9 @@ body::-webkit-scrollbar {
      -moz-user-select: none;
           user-select: none;
 }
+#about .wrapper .awards {
+  padding: 0;
+}
 #about .wrapper .awards .awards-item {
   display: flex;
   justify-content: space-between;
